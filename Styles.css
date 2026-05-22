@@ -41,7 +41,7 @@ nav a {
 }
 
 nav a.active {
-  color: #ff6b35; /* Orange färg, byt till den ni vill ha */
+  color: #ff6b35; 
   font-weight: 700;
   border-bottom: 3px solid #ff6b35;
   border-radius: 2px;
