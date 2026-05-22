@@ -40,6 +40,14 @@ nav a {
   text-decoration: none;
 }
 
+nav a.active {
+  color: #ff6b35; /* Orange färg, byt till den ni vill ha */
+  font-weight: 700;
+  border-bottom: 3px solid #ff6b35;
+  border-radius: 2px;
+  padding-bottom: 0.3rem;
+}
+
 /*HERO*/
 .hero {
   padding: 12rem 8rem 8rem 8rem;
@@ -65,6 +73,14 @@ nav a {
   border-radius: 4rem;
   background: #7da25a;
   color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero a:hover {
+  background: #7bc932;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /*STATS*/
