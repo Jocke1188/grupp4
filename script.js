@@ -1,37 +1,16 @@
-const urlSCB =
+//KONFIGURATION
+const urlSCB = "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI1303/MI1303B/ExplVatmark";
 
-  "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI1303/MI1303B/ExplVatmark";
-
-// query
 const querySCB = {
-
   query: [
     {
       code: "Region",
       selection: {
         filter: "vs:RegionLän07EjAggr",
         values: [
-          "01",
-          "03",
-          "04",
-          "05",
-          "06",
-          "07",
-          "08",
-          "09",
-          "10",
-          "12",
-          "13",
-          "14",
-          "17",
-          "18",
-          "19",
-          "20",
-          "21",
-          "22",
-          "23",
-          "24",
-          "25"
+          "01", "03", "04", "05", "06", "07", "08", "09", "10",
+          "12", "13", "14", "17", "18", "19", "20", "21", "22",
+          "23", "24", "25"
         ]
       }
     },
@@ -39,20 +18,14 @@ const querySCB = {
       code: "Exploateringstyp",
       selection: {
         filter: "item",
-        values: [
-          "BYGGN",
-          "JVAG",
-          "VAG"
-        ]
+        values: ["BYGGN", "JVAG", "VAG"]
       }
     },
     {
       code: "ContentsCode",
       selection: {
         filter: "item",
-        values: [
-          "000006WZ"
-        ]
+        values: ["000006WZ"]
       }
     }
   ],
@@ -61,7 +34,7 @@ const querySCB = {
   }
 };
 
-// region mapping
+//MAPPNINGAR
 const regionMap = {
   "01": "Stockholm",
   "03": "Uppsala",
@@ -86,24 +59,11 @@ const regionMap = {
   "25": "Norrbotten"
 };
 
-// fetch
-const request = new Request(urlSCB, {
-  method: "POST",
-  body: JSON.stringify(querySCB)
-});
-
-fetch(request)
-.then(response => response.json())
-.then(dataSCB => {
-  printSCBChart(dataSCB);
-})
-.catch(error => {
-  console.error(error);
-});
-
+// FUNKTIONER
 function printSCBChart(dataSCB) {
   console.log(dataSCB);
   const rows = dataSCB.data;
+  
   if (!rows) {
     console.error("Ingen data");
     return;
@@ -156,3 +116,18 @@ function printSCBChart(dataSCB) {
     }
   );
 }
+
+//API-ANROP
+const request = new Request(urlSCB, {
+  method: "POST",
+  body: JSON.stringify(querySCB)
+});
+
+fetch(request)
+  .then(response => response.json())
+  .then(dataSCB => {
+    printSCBChart(dataSCB);
+  })
+  .catch(error => {
+    console.error(error);
+  });
