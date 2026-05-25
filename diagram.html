@@ -46,6 +46,27 @@
   <section class="chart">
     <canvas id="myChart"></canvas>
   </section>
+
+   <section class="våtmark-section">
+            <h2>Våtmark i Sveriges län</h2>
+            <p>Kartan visar öppen våtmark och exploaterad våtmark per län.</p>
+            <div id="controls">
+                <label>Visa:
+                    <select id="metricSel">
+                        <option value="expl_pct">Andel exploaterad av total våtmark (%)</option>
+                        <option value="expl_ha">Exploaterad våtmark (ha)</option>
+                        <option value="våtmark_ha">Total öppen våtmark (ha)</option>
+                    </select>
+                </label>
+            </div>
+            <div id="status"></div>
+            <div id="info"></div>
+          <div id="map-wrapper">
+            <div id="map"></div>
+            <div id="map-overlay"></div>
+          </div>
+        </section>
+        
   <section class="accordion">
     <button>
       RANDOM TABEL 2
@@ -89,5 +110,8 @@
         </article>
       </div>
     </footer>   
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script src="våtmark.js"></script>
 </body>
 </html>
