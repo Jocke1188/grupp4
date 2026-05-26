@@ -28,8 +28,9 @@
   <h1>Data & analys</h1>
   <p>Data om exploaterade våtmarker i Sverige.</p>
 </section>
+
 <main>
-  <section class="data-intro">
+<section class="data-intro">
   <h2>Så påverkar infrastrukturen våra våtmarker</h2>
   <p>Här presenteras data om hur vägar, järnvägar och byggnationer påverkar våtmarkerna i Sveriges län. Genom stapeldiagram och interaktiv karta kan du utforska vilka län som drabbats hårdast och hur exploateringen ser ut direkt och indirekt.</p>
 </section>
@@ -69,6 +70,30 @@
     </div>
   </div>
 </section>
+
+<section class="impact-section">
+  <div class="section-header">
+    <h2>Direkt påverkan</h2>
+  </div>
+  <div class="impact-content">
+    <div class="impact-text">
+      <h3>Varför tar vägar mest yta?</h3>
+      <p> Den direkta exploateringen visar tydlig siffror där vägar tar fysiskt mer yta än 
+        järnvägar och byggnader. En genomsnittlig motorväg är 20-30 meter bred, medan en 
+        järnväg endast är 5-10 meter bred. När vi bygger vägar genom våtmarker försvinner 
+        marken permanent under asfalt.</p>
+      <p> I datan från SCB ser man tydligt att vägar står för den klart största andelen exploaterad 
+        våtmark i nästan alla län. Norrbotten har störst total exploaterad yta i absoluta tal.
+        Men det är viktigt att förstå att detta län också har över 1,6 miljoner hektar öppen 
+        våtmark. Sett till procentuell andel har Norrbotten faktiskt exploaterat minst av sin 
+        totala våtmark.</p>
+    </div>
+    <div class="impact-image">
+      [Bild: Väg genom våtmark]
+    </div>
+  </div>
+</section>
+
 <section class="våtmark-section">
   <h2>Våtmark i Sveriges län</h2>
   <p>Kartan visar öppen våtmark och exploaterad våtmark per län.</p>
@@ -87,28 +112,63 @@
     <div id="map"></div>
   </div>
 </section>
+
+<section class="impact-section">
+  <div class="section-header section-header-centered">
+    <h2>Indirekt påverkan</h2>
+  </div>
+
+  <div class="indirect-intro">
+    <p>
+      Siffrorna berättar bara halva sanningen. Den indirekta påverkan från vägbyggen är ofta 
+      större än den direkta exploateringen. När en väg dras genom en våtmark händer flera saker 
+      som påverkar ett mycket större område än själva vägen. <small>(Suarez-Rojas & Widmark, 2025)</small>:
+    </p>
+    <p>Den indirekta påverkan från en väg genom en våtmark kan vara 5-10 gånger större än den direkta exploateringen. En 100 meter lång vägsträcka som tar 0,3 hektar direkt kan påverka upp till 3 hektar våtmark indirekt genom dränering och störd hydrologi.</p>
+  </div>
+
+  <div class="impact-cards">
+    <div class="impact-card">
+      <h4>Hydrologi störs</h4>
+      <p>
+        Vägbanken fungerar som en barriär som avbryter vattenflöden. Våtmarker är helt beroende 
+        av rätt vattennivå och störningar leder till uttorkning på ena sidan och översvämning på andra.
+      </p>
+    </div>
+
+    <div class="impact-card">
+      <h4>Fragmentering</h4>
+      <p>
+        Vägen delar ekosystemet i två. Djur kan inte längre röra sig fritt, växter isoleras, 
+        och den biologiska mångfalden minskar drastiskt.
+      </p>
+    </div>
+
+    <div class="impact-card">
+      <h4>Dränering krävs</h4>
+      <p>
+        För att hålla vägen torr måste man dränera omkringliggande mark. Detta påverkar ofta 
+        våtmarker hundratals meter bort från själva vägen.
+      </p>
+    </div>
+
+    <div class="impact-card">
+      <h4>Föroreningar</h4>
+      <p>
+        Vägdagvatten innehåller tungmetaller, salt och mikroplaster som rinner ner i våtmarken 
+        och förstör vattenkvaliteten.
+      </p>
+    </div>
+
+  </div>
+</section>
+
 <section class="chart">
-            <h2>Exploaterad våtmark via vägar per län 2020–2024</h2>
+            <h2>Exploaterad våtmark via vägar per län mellan åren 2020 till 2024</h2>
             <p>Diagrammet visar hur mycket våtmark som exploaterats av vägar per län över tid.</p>
             <canvas id="lineChart"></canvas>
 </section>
-
-  <section class="stats">
-    <article>
-      <h3>367 ha</h3>
-      <p>Förstörd mark</p>
-    </article>
-    <article>
-      <h3>46 kg</h3>
-      <p>Koldioxid</p>
-    </article>
-    <article>
-      <h3>11%</h3>
-      <p>Ökning</p>
-    </article>
-  </section>
 </main>
-
    <footer>
     <section class="sources">
       <h2>Vetenskapliga källor</h2>
