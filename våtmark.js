@@ -178,6 +178,7 @@ async function fetchExplData() {
         const name = REGION_CODE_MAP[code];
         if (name) result[name] = parseInt(values[pos - offset]) || 0;
     });
+    
     return result;
 }
 
