@@ -533,7 +533,7 @@ footer {
 
 
 .card:hover .reference {
-  opacity: 1;
+  opacity: 2;
   max-height: 20rem;
 }
 
