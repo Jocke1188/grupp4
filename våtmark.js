@@ -4,7 +4,7 @@ const SCB_EXPL_URL = "https://statistikdatabasen.scb.se/api/v2/tables/TAB4312/da
     "?lang=sv" +
     "&valueCodes[Region]=01,03,04,05,06,07,08,09,10,12,13,14,17,18,19,20,21,22,23,24,25" +
     "&valueCodes[Exploateringstyp]=TOT" +
-    "&valueCodes[ContentsCode]=000006WX" +
+    "&valueCodes[ContentsCode]=000006WZ" +
     "&valueCodes[Tid]=2024";
 
 const REGION_CODE_MAP = {
@@ -171,10 +171,12 @@ async function fetchExplData() {
     const json = await r.json();
     const regionIndex = json.dimension.Region.category.index;
     const values = json.value;
+    const positions = Object.values(regionIndex).sort((a, b) => a - b);
+    const offset = positions[0];
     const result = {};
     Object.entries(regionIndex).forEach(([code, pos]) => {
         const name = REGION_CODE_MAP[code];
-        if (name) result[name] = parseInt(values[pos]) || 0;
+        if (name) result[name] = parseInt(values[pos - offset]) || 0;
     });
     return result;
 }
