@@ -59,6 +59,12 @@ const regionMap = {
   "25": "Norrbotten"
 };
 
+const typeMap = {
+  BYGGN: "Byggnader",
+  JVAG: "Järnvägar",
+  VAG: "Vägar"
+};
+
 // FUNKTIONER
 function printSCBChart(dataSCB) {
   console.log(dataSCB);
@@ -96,11 +102,11 @@ function printSCBChart(dataSCB) {
         : 0;
     });
 
-    return {
-      label: type,
-      data,
-      borderWidth: 2
-    };
+  return {
+  label: typeMap[type],
+  data,
+  borderWidth: 2
+};
   });
 
   new Chart(
