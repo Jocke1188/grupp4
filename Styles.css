@@ -518,3 +518,27 @@ footer {
     font-size: 13px;
     height: 80px;
 }
+
+/*Green facts box*/
+.key-facts-box {
+  background: linear-gradient(135deg, #7da25a 0%, #5d8a3a 100%);
+  color: white;
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: 1rem;
+  max-width: 900px;
+}
+
+.key-facts-box p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0 0 1.5rem 0;
+}
+
+.key-facts-box p:last-child {
+  margin-bottom: 0;
+}
+
+.key-facts-box strong {
+  font-weight: 700;
+}
