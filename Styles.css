@@ -270,23 +270,216 @@ footer {
   }
 }
 
-/*Kartan*/
+/*DATA INTRO*/
+.data-intro {
+  width: min(800px, 90%);
+  margin: 5rem auto 4rem;
+}
+
+.data-intro h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #2c5530;
+}
+
+.data-intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/*DATA SECTION*/
+.data-section {
+  width: min(1400px, 95%);
+  margin: 5rem auto;
+  padding: 3rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.data-content {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.data-text h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c5530;
+}
+
+.data-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.data-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7da25a;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.data-visual {
+  padding: 0;
+}
+
+#myChart {
+  max-height: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.insight {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #fff5f5;
+  border-left: 4px solid #ff6b6b;
+  border-radius: 0.5rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.insight strong {
+  color: #d63031;
+  margin-right: 0.5rem;
+}
+
+/*MOBILE*/
+@media (max-width: 968px) {
+  .data-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .data-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+
+/*CHART SECTION*/
+.chart {
+  width: min(1100px, 90%);
+  margin: 4rem auto;
+  padding: 3rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.chart h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.chart p {
+  margin-bottom: 2rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+#myChart {
+  max-height: 600px;
+  margin-bottom: 2rem;
+}
+
+/*Insikt ruta under diagram*/
+.insight {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff5f5;
+  border-left: 4px solid #ffa16b;
+  border-radius: 0.5rem;
+  line-height: 1.6;
+}
+
+.insight strong {
+  color: #c5642c;
+  margin-right: 0.5rem;
+}
+
+/*Karta*/
+.våtmark-section {
+  width: min(1400px, 90%);
+  margin: 5rem auto;
+  padding: 3rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.våtmark-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c5530;
+}
+
+.våtmark-section p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+#controls {
+  margin-bottom: 1.5rem;
+}
+
+#controls label {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+#controls select {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  background: white;
+}
+
 #map-wrapper {
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-    margin-top: 10px;
+  width: 100%;
+  position: relative;
 }
 
 #map {
-    width: 100%;
-    height: 800px;
-    position: relative;
+  width: 100%;
+  height: 700px;
+  border-radius: 0.5rem;
 }
 
 #info {
-    font-size: 0.8rem;
-    color: #999;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border-radius: 0.5rem;
+  border-left: 3px solid #7da25a;
 }
 
 /*Saken nere till höger i kartan*/
@@ -295,25 +488,25 @@ footer {
     bottom: 30px;
     right: 10px;
     background: white;
-    padding: 8px 8px;
-    border-radius: 6px;
+    padding: 12px;
+    border-radius: 8px;
     font-size: 11px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     z-index: 1000;
-    width: 120px;
+    width: 150px;
 }
 
 .legend-content {
     display: flex;
     flex-direction: row;
-    gap: 6px;
+    gap: 8px;
     align-items: stretch;
     margin-top: 4px;
 }
 
 .legend-gradient {
-    width: 14px;
-    height: 80px;
+    width: 18px;
+    height: 100px;
     border-radius: 3px;
     flex-shrink: 0;
 }
@@ -322,6 +515,6 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 11px;
+    font-size: 13px;
     height: 80px;
 }

@@ -33,49 +33,56 @@
   <h1>Data & analys</h1>
   <p>Data om exploaterade våtmarker i Sverige.</p>
 </section>
-
 <main>
-  <section class="intro">
-    <article>
-      <h2>Rubrik</h2>
+  <section class="data-intro">
+  <h2>Så påverkar infrastrukturen våra våtmarker</h2>
+  <p>Här presenterar vi data om hur vägar, järnvägar och byggnationer påverkar våtmarkerna i Sveriges län. Genom stapeldiagram och interaktiv karta kan du utforska vilka län som drabbats hårdast och hur exploateringen ser ut.</p>
+</section>
+
+<section class="data-section">
+  <div class="data-content">
+    <div class="data-text">
+      <h3>Exploatering per län</h3>
       <p>
-        Text och förklaring av analys, typ.
+        Diagrammet visar exploaterad våtmark uppdelat på typ av infrastruktur. 
+        Norrbottens län har störst total exploaterad yta, med vägar som den 
+        dominerande faktorn.
       </p>
-    </article>
-    <aside></aside>
-  </section>
-
-  <section class="chart">
-    <canvas id="myChart"></canvas>
-  </section>
-
-   <section class="våtmark-section">
-            <h2>Våtmark i Sveriges län</h2>
-            <p>Kartan visar öppen våtmark och exploaterad våtmark per län.</p>
-            <div id="controls">
-                <label>Visa:
-                    <select id="metricSel">
-                        <option value="expl_pct">Andel exploaterad av total våtmark (%)</option>
-                        <option value="expl_ha">Exploaterad våtmark (ha)</option>
-                        <option value="våtmark_ha">Total öppen våtmark (ha)</option>
-                    </select>
-                </label>
-            </div>
-            <div id="status"></div>
-            <div id="info"></div>
-        <div id="map-wrapper">
-          <div id="map"></div>
+      <div class="data-stats">
+        <div class="stat-item">
+          <span class="stat-number">21</span>
+          <span class="stat-label">län analyserade</span>
         </div>
-        </section>
-        
-  <section class="accordion">
-    <button>
-      RANDOM TABEL 2
-    </button>
-    <button>
-      RANDOM TABEL 3
-    </button>
-  </section>
+      </div>
+    </div>
+    
+    <div class="data-visual">
+      <canvas id="myChart"></canvas>
+      <div class="insight">
+        <strong>Insikt:</strong> Vägar utgör den största källan till exploatering 
+        i de flesta län, följt av järnvägar och byggnader.
+      </div>
+    </div>
+  </div>
+</section>
+<section class="våtmark-section">
+  <h2>Våtmark i Sveriges län</h2>
+  <p>Kartan visar öppen våtmark och exploaterad våtmark per län.</p>
+  <div id="controls">
+    <label>Visa:
+      <select id="metricSel">
+        <option value="expl_pct">Andel exploaterad av total våtmark (%)</option>
+        <option value="expl_ha">Exploaterad våtmark (ha)</option>
+        <option value="våtmark_ha">Total öppen våtmark (ha)</option>
+      </select>
+    </label>
+  </div>
+  <div id="status"></div>
+  <div id="info"></div>
+  <div id="map-wrapper">
+    <div id="map"></div>
+  </div>
+</section>
 
   <section class="stats">
     <article>
