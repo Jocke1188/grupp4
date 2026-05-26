@@ -43,14 +43,14 @@ nav a {
 nav a.active {
   color: #ff6b35; 
   font-weight: 700;
-  border-bottom: 3px solid #ff6b35;
-  border-radius: 2px;
+  border-bottom: 0.2rem solid #ff6b35;
   padding-bottom: 0.3rem;
 }
 
 /*HERO*/
 /*GEMENSAM STYLING*/
 .hero {
+  height: 30rem;
   padding: 12rem 8rem 8rem 8rem;
   color: white;
   background-size: cover;
@@ -59,27 +59,28 @@ nav a.active {
 
 /*STARTSIDAN*/
 .hero-home {
-  background-image: linear-gradient(rgba(37, 100, 35, 0.4), rgba(21, 63, 10, 0.4)),
-  url("images/wetland2.jpg");
+  background-image:
+    linear-gradient(rgba(37, 100, 35, 0.4), rgba(21, 63, 10, 0.4)),
+    url("images/wetland2.jpg");
 }
 
 /*ANDRA SIDOR*/
 .hero-other {
   background-image: 
-  linear-gradient(rgba(37, 100, 35, 0.4), rgba(21, 63, 10, 0.4)),
-  url("images/hero.jpg");
+    linear-gradient(rgba(37, 100, 35, 0.4), rgba(21, 63, 10, 0.4)),
+    url("images/hero.jpg");
 }
 
 .hero h1 {
   font-size: 4rem;
   line-height: 1;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0.15rem 0.15rem 0.5rem rgba(0, 0, 0, 0.6);
 }
 
 .hero p {
   margin-bottom: 2rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0.15rem 0.15rem 0.5rem rgba(0, 0, 0, 0.6);
 }
 
 .hero a {
@@ -89,23 +90,23 @@ nav a.active {
   background: #7da25a;
   color: white;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .hero a:hover {
   background: #7bc932;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.15rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
 }
 
 /*STATS*/
 .stats {
-  width: min(1000px, 90%);
+  width: min(62.5rem, 90%);
   margin: -3rem auto 5rem;
   padding: 2rem;
   background: white;
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
@@ -118,7 +119,7 @@ nav a.active {
 
 /*ABOUT*/
 .about {
-  width: min(1000px, 90%);
+  width: min(62.5rem, 90%);
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -147,91 +148,43 @@ nav a.active {
   width: 100%;
   max-width: 30rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
 }
 
-/*FOOTER & SOURCES*/
-footer {
-  margin-top: 6rem;
-  padding: 6rem;
-  color: white;
-  background:
-    linear-gradient(rgba(52,90,40,.9), rgba(52,90,40,.9)),
-    url("images/footer.jpg")
-    center/cover;
-}
-
-.sources h2 {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.card {
-  padding: 2rem;
-  background: rgba(255,255,255,.08);
-  border-radius: 1rem;
-  backdrop-filter: blur(4px);
-}
-
-.card h3 {
-  margin-bottom: .5rem;
-}
-
-/*PLANTS*/
+/* PLANTS */
 .plants {
-  width: 70rem;
+  width: 50rem;
   margin: 6rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 4rem;
 }
 
-.plants article {
-  background: white;
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-.plants img {
-  width: 100%;
-  height: 18rem;
-  object-fit: cover;
-}
-
-.plants h2 {
-  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
-}
-
-.plants p {
-  padding: 0 1.5rem 1.5rem 1.5rem;
-  line-height: 1.6;
-}
-
-/*PLANT CARD*/
+/* PLANT CARD */
 .plant-card {
   background: white;
   border-radius: 1rem;
   overflow: hidden;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.plant-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.12);
 }
 
 .plant-card img {
-  width: 100%;
-  height: 18rem;
+  height: 14rem;
   object-fit: cover;
 }
 
 .plant-card section {
-  padding: 1.5rem;
+  padding: 1.2rem;
 }
 
 .plant-type {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: #6b7b5d;
   font-size: 0.9rem;
   font-weight: 700;
@@ -239,11 +192,12 @@ footer {
 }
 
 .plant-card h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 .plant-card p {
-  line-height: 1.6;
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
 /*ÖVRIGT*/
@@ -272,7 +226,7 @@ footer {
 
 /*DATA INTRO*/
 .data-intro {
-  width: min(800px, 90%);
+  width: min(50rem, 90%);
   margin: 5rem auto 4rem;
 }
 
@@ -290,12 +244,12 @@ footer {
 
 /*DATA SECTION*/
 .data-section {
-  width: min(1400px, 95%);
+  width: min(87.5rem, 95%);
   margin: 5rem auto;
   padding: 3rem;
   background: white;
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .data-content {
@@ -340,35 +294,15 @@ footer {
   font-size: 0.9rem;
   color: #666;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03rem;
 }
 
 .data-visual {
   padding: 0;
 }
 
-#myChart {
-  max-height: 600px;
-  margin-bottom: 1.5rem;
-}
-
-.insight {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  background: #fff5f5;
-  border-left: 4px solid #ff6b6b;
-  border-radius: 0.5rem;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.insight strong {
-  color: #d63031;
-  margin-right: 0.5rem;
-}
-
 /*MOBILE*/
-@media (max-width: 968px) {
+@media (max-width: 60.5rem) {
   .data-content {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -380,7 +314,6 @@ footer {
   }
 }
 
-
 /*CHART SECTION*/
 .chart {
   width: min(1400px, 95%);
@@ -388,7 +321,7 @@ footer {
   padding: 3rem;
   background: white;
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .chart h2 {
@@ -403,7 +336,7 @@ footer {
 }
 
 #myChart {
-  max-height: 600px;
+  max-height: 37.5rem;
   margin-bottom: 2rem;
 }
 
@@ -412,7 +345,7 @@ footer {
   margin-top: 2rem;
   padding: 1.5rem;
   background: #fff5f5;
-  border-left: 4px solid #ffa16b;
+  border-left: 0.25rem solid #ffa16b;
   border-radius: 0.5rem;
   line-height: 1.6;
 }
@@ -424,12 +357,12 @@ footer {
 
 /*Karta*/
 .våtmark-section {
-  width: min(1400px, 90%);
+  width: min(87.5rem, 90%);
   margin: 5rem auto;
   padding: 3rem;
   background: white;
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .våtmark-section h2 {
@@ -455,7 +388,7 @@ footer {
 #controls select {
   margin-left: 0.5rem;
   padding: 0.5rem 1rem;
-  border: 2px solid #ddd;
+  border: 0.13rem solid #ddd;
   border-radius: 0.5rem;
   font-size: 0.95rem;
   background: white;
@@ -468,7 +401,7 @@ footer {
 
 #map {
   width: 100%;
-  height: 700px;
+  height: 43.75rem;
   border-radius: 0.5rem;
 }
 
@@ -479,44 +412,43 @@ footer {
   padding: 0.75rem;
   background: #f9f9f9;
   border-radius: 0.5rem;
-  border-left: 3px solid #7da25a;
+  border-left: 0.2rem solid #7da25a;
 }
 
 /*Saken nere till höger i kartan*/
 #map-legend {
-    position: absolute;
-    bottom: 30px;
-    right: 10px;
-    background: white;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 11px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-    z-index: 1000;
-    width: 150px;
+  position: absolute;
+  bottom: 1.9rem;
+  right: 0.6rem;
+  width: 9.4rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+  box-shadow: 0 0.06rem 0.25rem rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
 .legend-content {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-items: stretch;
-    margin-top: 4px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+  margin-top: 0.25rem;
 }
 
 .legend-gradient {
-    width: 18px;
-    height: 100px;
-    border-radius: 3px;
-    flex-shrink: 0;
+  width: 1.1rem;
+  height: 6.25rem;
+  border-radius: 0.2rem;
+  flex-shrink: 0;
 }
 
 .legend-labels {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 13px;
-    height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 13px;
+  height: 80px;
 }
 
 /*Green facts box*/
@@ -673,4 +605,71 @@ footer {
   .impact-cards {
     grid-template-columns: 1fr;
   }
+}
+
+/*FOOTER & SOURCES*/
+footer {
+  display: flex;
+  flex-direction: column;  
+  margin-top: 6rem;
+  padding: 6rem;
+  min-height: 36rem;
+  color: white;
+  background:
+    linear-gradient(rgba(52,90,40,.9), rgba(52,90,40,.9)),
+    url("images/footer.jpg");
+  background-size: cover;
+}
+
+.sources h2 {  
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* CARD VETENSKAPLIGA KÄLLOR */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.card {
+  transition: 0.3s ease;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  background: rgba(255,255,255,.08);
+  border-radius: 1rem;
+  backdrop-filter: blur(0.25rem);
+  min-width: 0;
+  cursor: pointer;
+}
+
+.card p {
+  padding-bottom: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.6rem 1.5rem rgba(0,0,0,.12);
+}
+
+.reference {
+  color: #cfe8b8;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+
+.card:hover .reference {
+  opacity: 2;
+  max-height: 20rem;
+}
+
+.footer-info {
+  margin-top: auto;
+  text-align: center;
 }
