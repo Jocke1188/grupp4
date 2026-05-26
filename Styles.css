@@ -383,8 +383,8 @@ footer {
 
 /*CHART SECTION*/
 .chart {
-  width: min(1100px, 90%);
-  margin: 4rem auto;
+  width: min(1400px, 95%);
+  margin: 5rem auto;
   padding: 3rem;
   background: white;
   border-radius: 1rem;

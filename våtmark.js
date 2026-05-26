@@ -41,9 +41,9 @@ const VÅTMARK_DATA = {
     'Norrbotten':      1631344
 };
 
-let map = null;
-let geojsonLayer = null;
-let geojsonData = null;
+let leafletMap = null;
+let vatmarkGeoLayer = null;
+let vatmarkGeoData = null;
 let explData = null;
 
 const GREEN_SCALE = ['#E1F5EE','#9FE1CB','#5DCAA5','#1D9E75','#0F6E56','#085041'];
@@ -72,9 +72,9 @@ function drawMap(metric) {
     const vals = getValues(metric);
     const max = Math.max(...vals);
 
-    if (geojsonLayer) geojsonLayer.remove();
+    if (vatmarkGeoLayer) vatmarkGeoLayer.remove();
 
-    geojsonLayer = L.geoJSON(geojsonData, {
+    vatmarkGeoLayer = L.geoJSON(vatmarkGeoData, {
         style: feature => {
             const name = feature.properties.name;
             const total = VÅTMARK_DATA[name] || 0;
@@ -115,7 +115,7 @@ function drawMap(metric) {
                 layer.getTooltip().options.direction = direction;
             });
         }
-    }).addTo(map);
+    }).addTo(leafletMap);
 
     updateLegend(max, isExpl, metric);
     updateInfo();
@@ -163,7 +163,7 @@ function updateInfo() {
 
 async function loadGeoJSON() {
     const r = await fetch(GEOJSON_URL);
-    geojsonData = await r.json();
+    vatmarkGeoData = await r.json();
 }
 
 async function fetchExplData() {
@@ -178,12 +178,11 @@ async function fetchExplData() {
         const name = REGION_CODE_MAP[code];
         if (name) result[name] = parseInt(values[pos - offset]) || 0;
     });
-    
     return result;
 }
 
 async function init() {
-    map = L.map('map', {
+    leafletMap = L.map('map', {
         center: [63, 17.3],
         zoom: 5,
         zoomControl: false,
@@ -197,7 +196,7 @@ async function init() {
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
         attribution: '© CARTO © OpenStreetMap contributors'
-    }).addTo(map);
+    }).addTo(leafletMap);
 
     await loadGeoJSON();
     explData = await fetchExplData();
