@@ -1,50 +1,53 @@
-const SCB_LINE_DIREKT = "https://statistikdatabasen.scb.se/api/v2/tables/TAB4312/data" +
+const SCB_LINE_DIREKT_URL = "https://statistikdatabasen.scb.se/api/v2/tables/TAB4312/data" +
     "?lang=sv" +
     "&valueCodes[ContentsCode]=000006WZ" +
     "&valueCodes[Region]=01,03,04,05,06,07,08,09,10,12,13,14,17,18,19,20,21,22,23,24,25" +
-    "&valueCodes[Exploateringstyp]=TOT" +
+    "&valueCodes[Exploateringstyp]=BYGGN,JVAG,VAG" +
     "&valueCodes[Tid]=2020,2021,2022,2023,2024";
 
-const SCB_LINE_INDIREKT = "https://statistikdatabasen.scb.se/api/v2/tables/TAB4312/data" +
+const SCB_LINE_INDIREKT_URL = "https://statistikdatabasen.scb.se/api/v2/tables/TAB4312/data" +
     "?lang=sv" +
     "&valueCodes[ContentsCode]=000006WX" +
     "&valueCodes[Region]=01,03,04,05,06,07,08,09,10,12,13,14,17,18,19,20,21,22,23,24,25" +
-    "&valueCodes[Exploateringstyp]=TOT" +
+    "&valueCodes[Exploateringstyp]=BYGGN,JVAG,VAG" +
     "&valueCodes[Tid]=2020,2021,2022,2023,2024";
 
-function parseTotalLine(json) {
+function parseTotal(json) {
     const regionIndex = json.dimension.Region.category.index;
     const tidIndex = json.dimension.Tid.category.index;
-    const lineValues = json.value;
+    const explIndex = json.dimension.Exploateringstyp.category.index;
+    const values = json.value;
 
     const lineYears = Object.keys(tidIndex).sort();
     const numYears = lineYears.length;
+    const numExpl = Object.keys(explIndex).length;
     const positions = Object.values(regionIndex).sort((a, b) => a - b);
-    const lineOffset = positions[0];
+    const offset = positions[0];
 
     return lineYears.map((year, yearPos) => {
         return Object.values(regionIndex).reduce((sum, regionPos) => {
-            const idx = (regionPos - lineOffset) * numYears + yearPos;
-            return sum + (parseInt(lineValues[idx]) || 0);
+            return Object.values(explIndex).reduce((s, explPos) => {
+                const idx = ((regionPos - offset) * numExpl + explPos) * numYears + yearPos;
+                return s + (parseInt(values[idx]) || 0);
+            }, sum);
         }, 0);
     });
 }
 
 async function fetchLineData() {
     const [r1, r2] = await Promise.all([
-        fetch(SCB_LINE_DIREKT),
-        fetch(SCB_LINE_INDIREKT)
+        fetch(SCB_LINE_DIREKT_URL),
+        fetch(SCB_LINE_INDIREKT_URL)
     ]);
-
     const [j1, j2] = await Promise.all([r1.json(), r2.json()]);
 
-    const lineYears = Object.keys(j1.dimension.Tid.category.index).sort();
-    const direktTotal = parseTotalLine(j1);
-    const indirektTotal = parseTotalLine(j2);
-    const indirektEndast = indirektTotal.map((v, i) => v - direktTotal[i]);
+    const years = Object.keys(j1.dimension.Tid.category.index).sort();
+    const direktTotal = parseTotal(j1);
+    const combinedTotal = parseTotal(j2);
+    const indirektEndast = combinedTotal.map((v, i) => v - direktTotal[i]);
 
     return {
-        years: lineYears,
+        years,
         datasets: [
             {
                 label: 'Direkt exploatering (ha)',
@@ -66,7 +69,6 @@ async function fetchLineData() {
 
 async function initLineChart() {
     const { years, datasets } = await fetchLineData();
-
     const ctx = document.getElementById('lineChart').getContext('2d');
     new Chart(ctx, {
         type: 'bar',

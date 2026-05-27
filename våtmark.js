@@ -1,10 +1,17 @@
 const GEOJSON_URL = "https://raw.githubusercontent.com/okfse/sweden-geojson/refs/heads/master/swedish_regions.geojson";
 
-const SCB_EXPL_URL = "https://statistikdatabasen.scb.se/api/v2/tables/TAB4312/data" +
+const SCB_DIREKT_URL = "https://statistikdatabasen.scb.se/api/v2/tables/TAB4312/data" +
     "?lang=sv" +
-    "&valueCodes[Region]=01,03,04,05,06,07,08,09,10,12,13,14,17,18,19,20,21,22,23,24,25" +
-    "&valueCodes[Exploateringstyp]=TOT" +
     "&valueCodes[ContentsCode]=000006WZ" +
+    "&valueCodes[Region]=01,03,04,05,06,07,08,09,10,12,13,14,17,18,19,20,21,22,23,24,25" +
+    "&valueCodes[Exploateringstyp]=BYGGN,JVAG,VAG" +
+    "&valueCodes[Tid]=2024";
+
+const SCB_INDIREKT_URL = "https://statistikdatabasen.scb.se/api/v2/tables/TAB4312/data" +
+    "?lang=sv" +
+    "&valueCodes[ContentsCode]=000006WX" +
+    "&valueCodes[Region]=01,03,04,05,06,07,08,09,10,12,13,14,17,18,19,20,21,22,23,24,25" +
+    "&valueCodes[Exploateringstyp]=BYGGN,JVAG,VAG" +
     "&valueCodes[Tid]=2024";
 
 const REGION_CODE_MAP = {
@@ -44,32 +51,61 @@ const VÅTMARK_DATA = {
 let leafletMap = null;
 let vatmarkGeoLayer = null;
 let vatmarkGeoData = null;
-let explData = null;
+let direktData = null;
+let indirektData = null;
 
-const GREEN_SCALE = ['#E1F5EE','#9FE1CB','#5DCAA5','#1D9E75','#0F6E56','#085041'];
 const ORANGE_SCALE = ['#FFF3E0','#FFCC80','#FFA726','#EF6C00','#BF360C','#7F1900'];
 
-function getColor(value, max, isExpl) {
-    const scale = isExpl ? ORANGE_SCALE : GREEN_SCALE;
-    if (max === 0) return scale[0];
+function getColor(value, max) {
+    if (max === 0) return ORANGE_SCALE[0];
     const ratio = value / max;
-    const index = Math.min(Math.floor(ratio * scale.length), scale.length - 1);
-    return scale[index];
+    const index = Math.min(Math.floor(ratio * ORANGE_SCALE.length), ORANGE_SCALE.length - 1);
+    return ORANGE_SCALE[index];
 }
 
-function getValues(metric) {
-    return Object.keys(VÅTMARK_DATA).map(r => {
-        const total = VÅTMARK_DATA[r];
-        const expl = explData[r] || 0;
-        if (metric === 'expl_ha') return expl;
-        if (metric === 'våtmark_ha') return total;
-        return total > 0 ? +((expl / total) * 100).toFixed(2) : 0;
+function parseExplData(json) {
+    const regionIndex = json.dimension.Region.category.index;
+    const explIndex = json.dimension.Exploateringstyp.category.index;
+    const values = json.value;
+
+    const numExpl = Object.keys(explIndex).length;
+    const positions = Object.values(regionIndex).sort((a, b) => a - b);
+    const offset = positions[0];
+
+    const result = {};
+    Object.entries(regionIndex).forEach(([code, regionPos]) => {
+        const name = REGION_CODE_MAP[code];
+        if (!name) return;
+        let total = 0;
+        Object.values(explIndex).forEach(explPos => {
+            const idx = (regionPos - offset) * numExpl + explPos;
+            total += parseInt(values[idx]) || 0;
+        });
+        result[name] = total;
     });
+    return result;
 }
 
-function drawMap(metric) {
-    const isExpl = metric !== 'våtmark_ha';
-    const vals = getValues(metric);
+function getActiveExplData() {
+    const typ = document.getElementById('explTypeSel').value;
+    if (typ === 'direkt') return direktData;
+    const result = {};
+    Object.keys(indirektData).forEach(name => {
+        result[name] = (indirektData[name] || 0) - (direktData[name] || 0);
+    });
+    return result;
+}
+
+function drawMap() {
+    const typ = document.getElementById('explTypeSel').value;
+    const expl = getActiveExplData();
+
+    const vals = Object.keys(VÅTMARK_DATA).map(r => {
+        const total = VÅTMARK_DATA[r];
+        const explVal = expl[r] || 0;
+        return total > 0 ? +((explVal / total) * 100).toFixed(2) : 0;
+    });
+
     const max = Math.max(...vals);
 
     if (vatmarkGeoLayer) vatmarkGeoLayer.remove();
@@ -78,14 +114,11 @@ function drawMap(metric) {
         style: feature => {
             const name = feature.properties.name;
             const total = VÅTMARK_DATA[name] || 0;
-            const expl = explData[name] || 0;
-            let value;
-            if (metric === 'expl_ha') value = expl;
-            else if (metric === 'våtmark_ha') value = total;
-            else value = total > 0 ? +((expl / total) * 100).toFixed(2) : 0;
+            const explVal = expl[name] || 0;
+            const value = total > 0 ? +((explVal / total) * 100).toFixed(2) : 0;
 
             return {
-                fillColor: getColor(value, max, isExpl),
+                fillColor: getColor(value, max),
                 weight: 1,
                 color: '#fff',
                 fillOpacity: 0.85
@@ -94,14 +127,15 @@ function drawMap(metric) {
         onEachFeature: (feature, layer) => {
             const name = feature.properties.name;
             const total = VÅTMARK_DATA[name] || 0;
-            const expl = explData[name] || 0;
-            const pct = total > 0 ? +((expl / total) * 100).toFixed(2) : 0;
+            const explVal = expl[name] || 0;
+            const pct = total > 0 ? +((explVal / total) * 100).toFixed(2) : 0;
+            const typLabel = typ === 'direkt' ? 'Direkt exploaterad' : 'Indirekt exploaterad';
 
             layer.bindTooltip(`
                 <b>${name}</b><br>
                 Total våtmark: ${total.toLocaleString('sv-SE')} ha<br>
-                Exploaterad våtmark: ${expl.toLocaleString('sv-SE')} ha<br>
-                Andel exploaterad: ${pct} %
+                ${typLabel}: ${explVal.toLocaleString('sv-SE')} ha<br>
+                Andel: ${pct} %
             `, {
                 sticky: true,
                 direction: 'right',
@@ -117,21 +151,12 @@ function drawMap(metric) {
         }
     }).addTo(leafletMap);
 
-    updateLegend(max, isExpl, metric);
-    updateInfo();
+    updateLegend(max, typ);
+    updateInfo(expl);
 }
 
-function updateLegend(max, isExpl, metric) {
-    const scale = isExpl ? ORANGE_SCALE : GREEN_SCALE;
-    const labels = {
-        'våtmark_ha': 'Total våtmark (ha)',
-        'expl_ha':    'Exploaterad (ha)',
-        'expl_pct':   'Andel exploaterad'
-    };
-
-    const isPct = metric === 'expl_pct';
-    const maxLabel = isPct ? `${max} %` : max.toLocaleString('sv-SE');
-    const minLabel = isPct ? '0 %' : '0';
+function updateLegend(max, typ) {
+    const title = typ === 'direkt' ? 'Direkt exploaterad (%)' : 'Indirekt exploaterad (%)';
 
     const existing = document.getElementById('map-legend');
     if (existing) existing.remove();
@@ -139,12 +164,12 @@ function updateLegend(max, isExpl, metric) {
     const legend = document.createElement('div');
     legend.id = 'map-legend';
     legend.innerHTML = `
-        <strong>${labels[metric]}</strong>
+        <strong>${title}</strong>
         <div class="legend-content">
-            <div class="legend-gradient" style="background: linear-gradient(to top, ${scale.join(', ')})"></div>
+            <div class="legend-gradient" style="background: linear-gradient(to top, ${ORANGE_SCALE.join(', ')})"></div>
             <div class="legend-labels">
-                <span>${maxLabel}</span>
-                <span>${minLabel}</span>
+                <span>${max} %</span>
+                <span>0 %</span>
             </div>
         </div>
     `;
@@ -152,8 +177,8 @@ function updateLegend(max, isExpl, metric) {
     document.getElementById('map').appendChild(legend);
 }
 
-function updateInfo() {
-    const totalExpl = Object.values(explData).reduce((a, b) => a + b, 0);
+function updateInfo(expl) {
+    const totalExpl = Object.values(expl).reduce((a, b) => a + b, 0);
     const totalVåtmark = Object.values(VÅTMARK_DATA).reduce((a, b) => a + b, 0);
     document.getElementById('info').textContent =
         `Total våtmark: ${totalVåtmark.toLocaleString('sv-SE')} ha  ·  ` +
@@ -166,19 +191,14 @@ async function loadGeoJSON() {
     vatmarkGeoData = await r.json();
 }
 
-async function fetchExplData() {
-    const r = await fetch(SCB_EXPL_URL);
-    const json = await r.json();
-    const regionIndex = json.dimension.Region.category.index;
-    const values = json.value;
-    const positions = Object.values(regionIndex).sort((a, b) => a - b);
-    const offset = positions[0];
-    const result = {};
-    Object.entries(regionIndex).forEach(([code, pos]) => {
-        const name = REGION_CODE_MAP[code];
-        if (name) result[name] = parseInt(values[pos - offset]) || 0;
-    });
-    return result;
+async function fetchAllData() {
+    const [r1, r2] = await Promise.all([
+        fetch(SCB_DIREKT_URL),
+        fetch(SCB_INDIREKT_URL)
+    ]);
+    const [j1, j2] = await Promise.all([r1.json(), r2.json()]);
+    direktData = parseExplData(j1);
+    indirektData = parseExplData(j2);
 }
 
 async function init() {
@@ -199,11 +219,10 @@ async function init() {
     }).addTo(leafletMap);
 
     await loadGeoJSON();
-    explData = await fetchExplData();
-    drawMap(document.getElementById('metricSel').value);
+    await fetchAllData();
+    drawMap();
 }
 
-document.getElementById('metricSel').addEventListener('change', () =>
-    drawMap(document.getElementById('metricSel').value));
+document.getElementById('explTypeSel').addEventListener('change', drawMap);
 
 init();
