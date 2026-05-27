@@ -110,7 +110,8 @@ async function initLineChart() {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Hektar (ha)'
+                        text: 'Hektar (ha)',
+                        font: {size: 17}
                     }
                 }
             }
