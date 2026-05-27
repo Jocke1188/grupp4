@@ -94,22 +94,37 @@
   </div>
 </section>
 
-<section class="våtmark-section">
-  <h2>Våtmark i Sveriges län</h2>
-  <p>Kartan visar öppen våtmark och exploaterad våtmark per län.</p>
-  <div id="controls">
-    <label>Exploateringstyp:
-        <select id="explTypeSel">
-            <option value="direkt">Direkt exploatering</option>
-            <option value="indirekt">Indirekt exploatering</option>
-        </select>
-    </label>
-  </div>
-  <div id="status"></div>
-  <div id="info"></div>
-  <div id="map-wrapper">
-    <div id="map"></div>
-  </div>
+<section class="data-section">
+    <div class="karta-content">
+        <div class="data-text">
+            <h3>Exploatering per län</h3>
+            <div id="controls">
+                <label>Exploateringstyp:
+                    <select id="explTypeSel">
+                        <option value="direkt">Direkt exploatering</option>
+                        <option value="indirekt">Indirekt exploatering</option>
+                    </select>
+                </label>
+            </div>
+            <p>
+                Kartan visar hur stor andel av varje läns öppna våtmark som är exploaterad av vägar, järnvägar och byggnader. 
+                Den södra delen av Svergie har den högsta andelen exploaterad våtmark i förhållande till den totala öppna våtmarken.
+            </p>
+            <p>
+                <strong class="viktigt">Viktigt:</strong> Kartan visar endast öppen våtmark. Öppen våtmark är myrar och kärr utan trädtäckning. 
+                Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark. 
+                Det innebär att den totala våtmarksarealen är större än vad som visas på kartan. 
+                Öppen våtmark är den dominerande och deb mest väldefinierade kategorin, vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Svergies län.
+            </p>
+           
+            <div id="info"></div>
+        </div>
+        <div class="karta-visual">
+            <div id="map-wrapper">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="impact-section">

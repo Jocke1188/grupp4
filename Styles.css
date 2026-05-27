@@ -349,14 +349,14 @@ nav a.active {
 .insight {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: #fff5f5;
-  border-left: 0.25rem solid #ffa16b;
+  background: #7da25a77;
+  border-left: 0.25rem solid #2c5530;
   border-radius: 0.5rem;
   line-height: 1.6;
 }
 
 .insight strong {
-  color: #c5642c;
+  color: #2c5530;
   margin-right: 0.5rem;
 }
 
@@ -406,18 +406,42 @@ nav a.active {
 
 #map {
   width: 100%;
-  height: 43.75rem;
+  height: 40rem;
   border-radius: 0.5rem;
 }
 
 #info {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 1rem;
-  padding: 0.75rem;
-  background: #f9f9f9;
-  border-radius: 0.5rem;
-  border-left: 0.2rem solid #7da25a;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.karta-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.karta-visual {
+    position: relative;
+    width: 100%;
+}
+
+.karta-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.karta-sources {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0.25rem;
+}
+
+.viktigt {
+    color: #ffa16b;
 }
 
 /*Saken nere till höger i kartan*/

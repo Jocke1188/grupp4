@@ -180,10 +180,17 @@ function updateLegend(max, typ) {
 function updateInfo(expl) {
     const totalExpl = Object.values(expl).reduce((a, b) => a + b, 0);
     const totalVåtmark = Object.values(VÅTMARK_DATA).reduce((a, b) => a + b, 0);
-    document.getElementById('info').textContent =
-        `Total våtmark: ${totalVåtmark.toLocaleString('sv-SE')} ha  ·  ` +
-        `Total exploaterad: ${totalExpl.toLocaleString('sv-SE')} ha  ·  ` +
-        `Källa: NMD2018 + SCB MI1303 2024`;
+    document.getElementById('info').innerHTML = `
+        <div class="stat-item">
+            <span class="stat-number">${totalVåtmark.toLocaleString('sv-SE')} ha</span>
+            <span class="stat-label">Total våtmark</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">${totalExpl.toLocaleString('sv-SE')} ha</span>
+            <span class="stat-label">Total exploaterad</span>
+        </div>
+        <p class="karta-sources">NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av våtmark 2024</p>
+    `;
 }
 
 async function loadGeoJSON() {
@@ -203,8 +210,8 @@ async function fetchAllData() {
 
 async function init() {
     leafletMap = L.map('map', {
-        center: [63, 17.3],
-        zoom: 5,
+        center: [62, 19],
+        zoom: 4.5,
         zoomControl: false,
         dragging: false,
         touchZoom: false,
