@@ -210,6 +210,7 @@ nav a.active {
   transition: 0.3s ease;
   cursor: pointer;
   z-index: 1;
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.08);
 }
 
 .plant-card:hover,
@@ -352,6 +353,7 @@ details p {
   #map {
     height: 22rem;
   }
+  
 }
 
 /*DATA INTRO*/
@@ -784,6 +786,15 @@ details p {
   margin: 0;
 }
 
+.impact-cards-grid {
+  width: min(63rem, 90%);
+  margin: 0 auto 6rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: Stretch;
+}
+
 /*FOOTER & SOURCES*/
 footer {
   display: flex;
@@ -881,6 +892,10 @@ html {
 
 @media (max-width: 768px) {
   .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-cards-grid {
     grid-template-columns: 1fr;
   }
 
