@@ -846,7 +846,8 @@ footer {
   justify-content: center;
   text-decoration: none;
   font-size: 1.5rem;  
-  transition: 0.3s ease;  
+  transition: 0.3s ease;
+  z-index: 100;  
 }
 
 .scroll-top:hover {
