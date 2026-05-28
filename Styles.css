@@ -9,6 +9,7 @@ body {
   font-family: "Inter", sans-serif;
   background: #f5f5f0;
   color: #111;
+  overflow-x: hidden;
 }
 
 img {
@@ -51,6 +52,7 @@ nav a.active {
 /*GEMENSAM STYLING*/
 .hero {
   height: 30rem;
+  min-height: 14rem;
   padding: 12rem 8rem 8rem 8rem;
   color: white;
   background-size: cover;
@@ -288,19 +290,67 @@ details p {
 
 /*MEDIA QUERIES*/
 @media (max-width: 768px) {
+  header {
+    padding: 1.5rem 1.5rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hero {
+    height: auto;
+    padding: 6rem 1.5rem 4rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
   .stats,
   .about,
   .cards {
     grid-template-columns: 1fr;
   }
 
-  .hero-content {
-    margin-top: 5rem;
+  .plants {
+    grid-template-columns: 1fr;
   }
 
-  .nav {
+  .karta-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .karta-stats {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  footer {
+    padding: 3rem 1.5rem;
+  }
+
+  .data-section,
+  .våtmark-section,
+  .chart {
+    padding: 1.5rem;
+  }
+
+  .plant-card:has(details[open]) section {
+    position: static;
+    box-shadow: none;
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  .plant-card:has(details[open]) {
+    transform: none;
+  }
+
+  #map {
+    height: 22rem;
   }
 }
 
@@ -379,6 +429,8 @@ details p {
 
 .data-visual {
   padding: 0;
+  overflow: hidden;
+  min-width: 0;
 }
 
 /*MOBILE*/
@@ -417,6 +469,12 @@ details p {
 
 #myChart {
   max-height: 37.5rem;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+#lineChart {
+  max-width: 100%;
   margin-bottom: 2rem;
 }
 
@@ -641,9 +699,12 @@ details p {
   .impact-content {
     grid-template-columns: 1fr;
   }
+
+  .impact-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
-/*INDIRECT exploitering*/
 .section-header-centered {
   margin-bottom: 2rem;
 }
@@ -701,12 +762,6 @@ details p {
   line-height: 1.7;
   color: #555;
   margin: 0;
-}
-
-@media (max-width: 968px) {
-  .impact-cards {
-    grid-template-columns: 1fr;
-  }
 }
 
 /*FOOTER & SOURCES*/
@@ -801,4 +856,10 @@ footer {
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
