@@ -549,7 +549,14 @@ details p {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.karta-sources-mobil {
+    display: none;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0.75rem;
 }
 
 .karta-content {
@@ -937,5 +944,21 @@ html {
   .karta-content {
     display: flex;
     flex-direction: column;
+  }
+
+  .karta-text {
+    order: 1;
+  }
+
+  .karta-visual {
+    order: 2;
+  }
+
+  .karta-sources-mobil {
+    display: block;
+  }
+
+  #info .karta-sources {
+    display: none;
   }
 }
