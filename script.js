@@ -109,18 +109,43 @@ function printSCBChart(dataSCB) {
 };
   });
 
-  new Chart(
-    document.getElementById("myChart"),
-    {
-      type: "bar",
-      data: {
-        labels: regions.map(region =>
-          regionMap[region]
-        ),
-        datasets
+new Chart(
+  document.getElementById("myChart"),
+  {
+    type: "bar",
+
+    data: {
+      labels: regions.map(region =>
+        regionMap[region]
+      ),
+      datasets
+    },
+
+    options: {
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return [
+                `Typ: ${context.dataset.label}`,
+                `Yta: ${context.parsed.y} hektar`
+              ];
+            }
+          }
+        }
+      },
+
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: "Hektar (ha)"
+          }
+        }
       }
     }
-  );
+  }
+);
 }
 
 //API-ANROP
