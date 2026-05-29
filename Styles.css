@@ -249,7 +249,7 @@ nav a.active {
 }
 
 
-/*DETAILS*/
+/*DETAILS - read more about plants*/
 details {
   margin-top: 1rem;
 }
@@ -787,12 +787,15 @@ details p {
 }
 
 .impact-cards-grid {
-  width: min(63rem, 90%);
-  margin: 0 auto 6rem;
+ 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: Stretch;
+}
+
+.impact-cards-grid .plant-card {
+  width: 100%;
 }
 
 /*FOOTER & SOURCES*/
@@ -801,7 +804,7 @@ footer {
   flex-direction: column;  
   margin-top: 6rem;
   padding: 6rem;
-  min-height: 36rem;
+  min-height: 37rem;
   color: white;
   background:
     linear-gradient(rgba(52,90,40,.9), rgba(52,90,40,.9)),
