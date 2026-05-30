@@ -31,18 +31,19 @@
 
 <main>
 <section class="data-intro">
-  <h2>Så påverkar infrastrukturen våra våtmarker</h2>
-  <p>Här presenteras statistik över hur vägar, järnvägar och byggnationer har påverkat våtmarkerna i Sveriges olika län mellan 2020 och 2024.</p> 
-  <p>Genom stapeldiagram och en interaktiv karta kan du utforska hur exploateringen ser ut och vilka län som drabbats hårdast.</p>
+  <h2>Infrastrukturen påverkar våra våtmarker</h2>
+  <p>Vägar, järnvägar och byggnationer påverkar våtmarker över hela Sverige och omfattningen varierar mellan olika län. I vissa områden är den exploaterade ytan stor medan påverkan i andra län är större i förhållande till den totala våtmarksarealen.</p> 
+  <p>Diagrammen och kartan nedan visar hur exploateringen har utvecklats mellan 2020 och 2024 och vilka områden som påverkats mest.</p>
 </section>
 
 <section class="data-section">
   <div class="data-content">
     <div class="data-text">
-      <h3>Infrastrukturens exploatering i olika län</h3>
+      <h3>Vägbyggnation dominerar exploateringen av våtmarker</h3>
       <p>
-        Diagrammet visar exploaterad våtmark (hektar) uppdelad efter typ av infrastruktur.
-        Norrbottens län har den största exploaterade ytan, främst till följd av vägbyggnation.
+        Diagrammet visar exploaterad våtmark uppdelat efter typ av infrastruktur. 
+        Norrbottens län har störst total exploaterad yta med vägar som den 
+        dominerande faktorn.
       </p>
       <div class="viktigt-mobile">
         <details class="viktigt-details">
@@ -84,73 +85,72 @@
 </section>
 
 <section class="impact-section">
-  <div class="section-header">
+  <div>
     <h2>Direkt påverkan</h2>
   </div>
   <div class="impact-content">
     <div class="impact-text">
       <h3>Varför tar vägar mest yta?</h3>
-      <p> Den direkta exploateringen visar tydligt att vägar tar fysiskt mer yta än 
+      <p> Den direkta exploateringen visar tydligt att vägar tar mer yta än 
         järnvägar och byggnader. En genomsnittlig motorväg är 20-30 meter bred medan en 
-        järnväg endast är 5-10 meter bred. När vi bygger vägar genom våtmarker försvinner 
-        marken permanent under asfalt.</p>
-      <p>Vägar täcker också större sammanhängande områden än järnvägar. En enda väg kan sträcka sig genom flera län och dela upp våtmarkerna i mindre isolerade bitar.  Byggnader i sin tur är oftast lokaliserade till ett begränsat område och påverkar därför en mindre yta.</p>
-      <p>Vägar kräver dessutom ofta sidofunktioner som parkeringsplatser, rastplatser och serviceområden som tillsammans tar ytterligare mark. En järnväg är i grunden en smal linje, medan en väg är ett helt infrastruktursystem.</p>
+        järnväg endast är 5-10 meter bred.</p>
+      <p>Vägar täcker också större sammanhängande områden än järnvägar. En enda väg kan sträcka sig genom flera län och dela upp våtmarkerna i mindre isolerade bitar.  Byggnader är oftast lokaliserade till ett begränsat område och påverkar därför en mindre yta.</p>
+      <p>Vägar kräver dessutom ofta sidofunktioner som parkeringsplatser, rastplatser och serviceområden som tillsammans tar ytterligare mark. En järnväg är i grunden en smal linje medan en väg är ett helt infrastruktursystem.</p>
     </div>
     <div class="impact-image">
       <img src="images/roads.jpg" alt="many roads">
     </div>
   </div>
 </section>
+
 <section class="data-section">
-  <div class="karta-content">
-    <div class="data-text karta-text">
-      <h3>Exploatering per län</h3>
-        <div id="controls">
-          <label>Exploateringstyp:
-            <select id="explTypeSel">
-              <option value="direkt">Direkt exploatering</option>
-              <option value="indirekt">Indirekt exploatering</option>
-            </select>
-          </label>
-        </div>
-        <p>
-        Kartan visar hur stor andel av varje läns öppna våtmark som är exploaterad av vägar, järnvägar och byggnader.
-        Den södra delen av Sverige har den högsta andelen exploaterad våtmark i förhållande till den totala öppna våtmarken.
-        </p>
-        <div class="viktigt-mobile">
-          <details class="viktigt-details">
+    <div class="karta-content">
+        <div class="data-text">
+            <h3>Andelen exploaterad våtmark är störst i södra Sverige</h3>
+            <div id="controls">
+                <label>Exploateringstyp:
+                    <select id="explTypeSel">
+                        <option value="direkt">Direkt exploatering</option>
+                        <option value="indirekt">Indirekt exploatering</option>
+                    </select>
+                </label>
+            </div>
+            <p>
+                Kartan visar hur stor andel av varje läns öppna våtmark som är exploaterad av vägar, järnvägar och byggnader. 
+                Den södra delen av Sverige har den högsta andelen exploaterad våtmark i förhållande till den totala öppna våtmarken.
+            </p>
+            <details class="viktigt-details">
               <summary><strong class="viktigt">Viktigt</strong></summary>
-              <p>
-              Kartan visar endast öppen våtmark. Öppen våtmark är myrar och kärr utan trädtäckning.
-              Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark.
-              Det innebär att den totala våtmarksarealen är större än vad som visas på kartan.
-              Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län.
-              </p>
-          </details>
+                  <p>
+                    Kartan visar endast öppen våtmark. Öppen våtmark är myrar och kärr utan trädtäckning.
+                    Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark.
+                    Det innebär att den totala våtmarksarealen är större än vad som visas på kartan.
+                    Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län.
+                  </p>
+              </details>
+
+              <div class="viktigt-desktop">
+                <strong class="viktigt">Viktigt</strong>
+                  <p>
+                    Kartan visar endast öppen våtmark. Öppen våtmark är myrar och kärr utan trädtäckning.
+                    Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark.
+                    Det innebär att den totala våtmarksarealen är större än vad som visas på kartan.
+                    Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län.
+                  </p>
+              </div>
+           
+            <div id="info"></div>
         </div>
-        <div class="viktigt-desktop">
-          <strong class="viktigt">Viktigt</strong>
-          <p>
-            Kartan visar endast öppen våtmark. Öppen våtmark är myrar och kärr utan trädtäckning.
-            Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark.
-            Det innebär att den totala våtmarksarealen är större än vad som visas på kartan.
-            Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län.
-          </p>
+        <div class="karta-visual">
+            <div id="map-wrapper">
+                <div id="map"></div>
+            </div>
         </div>
-        <div id="info"></div>
-      </div>
-      <div class="karta-visual">
-          <div id="map-wrapper">
-              <div id="map"></div>
-          </div>
-          <p class="karta-sources-mobil">NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av våtmark 2024</p>
-        </div>
-      </div>
+    </div>
 </section>
 
 <section class="impact-section">
-  <div class="section-header section-header-centered">
+  <div>
     <h2>Indirekt påverkan</h2>
   </div>
 
@@ -208,8 +208,8 @@
     <section class="cards">
 
       <article class="card">
-        <h3>Wetlands in the EU Policy Context</h3>
-        <p class="author">Klusmann et al.</p>
+        <h4>Wetlands in the EU Policy Context</h4>
+        <p >Klusmann et al.</p>
 
         <div class="reference">
           <p>
@@ -226,8 +226,8 @@
       </article>
 
       <article class="card">
-        <h3>Impact from Peat Utilisation in Sweden</h3>
-        <p class="author">Zetterberg et al.</p>
+        <h4>Impact from Peat Utilisation in Sweden</h4>
+        <p>Zetterberg et al.</p>
 
         <div class="reference">
           <p>
@@ -239,8 +239,8 @@
       </article>
 
       <article class="card">
-        <h3>Analysis of Peatland-Related Policies</h3>
-        <p class="author">Suarez-Rojas & Widmark</p>
+        <h4>Analysis of Peatland-Related Policies</h4>
+        <p>Suarez-Rojas & Widmark</p>
 
         <div class="reference">
           <p>
