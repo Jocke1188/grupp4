@@ -908,9 +908,13 @@ html {
 
   .karta-sources-mobil {
     display: block;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 0.75rem;
   }
 
-  #info .karta-sources {
-    display: none;
+  .karta-sources {
+  display: none;
   }
+
 }
