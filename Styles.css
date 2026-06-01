@@ -434,6 +434,10 @@ details p {
   }
 }
 
+.stats h2 {
+  color: #7da25a;
+}
+
 /*CHART SECTION*/
 .chart {
   width: min(87.5rem, 95%);
