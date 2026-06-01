@@ -746,6 +746,8 @@ details p {
 
 .impact-cards-grid .plant-card {
   width: 100%;
+  transform: none;
+  cursor: default;
 }
 
 /*FOOTER & SOURCES*/
