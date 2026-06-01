@@ -80,6 +80,11 @@ nav a.active {
   padding-bottom: 0.3rem;
 }
 
+nav a.logo {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 /*HERO*/
 /*GEMENSAM STYLING*/
 .hero {
