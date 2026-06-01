@@ -44,27 +44,6 @@
         Norrbottens län har störst total exploaterad yta med vägar som den 
         dominerande faktorn.
       </p>
-      <div class="viktigt-mobile">
-        <details class="viktigt-details">
-          <summary><strong>Viktigt</strong></summary>
-            <p>
-             Skillnaden mellan absoluta siffror och relativa andelar är betydande i detta diagram.
-             Norrbotten har enorma våtmarksområden på över 1,6 miljoner hektar öppen våtmark.
-             Men trots att länet har störst absolut exploatering, är det bara en liten andel av deras totala våtmark.
-             Med detta i åtanke kan mindre län i södra Sverige ha exploaterat en mycket större andel av sina totala våtmarker.
-           </p>
-        </details>
-      </div>
-
-      <div class="viktigt-desktop">
-        <strong class="viktigt">Viktigt</strong>
-         <p>
-          Skillnaden mellan absoluta siffror och relativa andelar är betydande i detta diagram.
-          Norrbotten har enorma våtmarksområden på över 1,6 miljoner hektar öppen våtmark.
-          Men trots att länet har störst absolut exploatering, är det bara en liten andel av deras totala våtmark.
-          Med detta i åtanke kan mindre län i södra Sverige ha exploaterat en mycket större andel av sina totala våtmarker.
-          </p>
-      </div>
 
       <div class="data-stats">
         <div class="stat-item">
@@ -72,6 +51,16 @@
           <span class="stat-label">län analyserade</span>
         </div>
       </div>
+
+      <details class="viktigt-details">
+          <summary><strong class="Viktigt">Viktigt</strong></summary>
+            <p>
+             Skillnaden mellan absoluta siffror och relativa andelar är betydande i detta diagram.
+             Norrbotten har enorma våtmarksområden på över 1,6 miljoner hektar öppen våtmark.
+             Men trots att länet har störst absolut exploatering, är det bara en liten andel av deras totala våtmark.
+             Med detta i åtanke kan mindre län i södra Sverige ha exploaterat en mycket större andel av sina totala våtmarker.
+           </p>
+      </details>
     </div>
     
     <div class="data-visual">
@@ -118,6 +107,7 @@
                 Kartan visar hur stor andel av varje läns öppna våtmark som är exploaterad av vägar, järnvägar och byggnader. 
                 Den södra delen av Sverige har den högsta andelen exploaterad våtmark i förhållande till den totala öppna våtmarken.
             </p>
+            <div id="info"></div>
             <details class="viktigt-details">
               <summary><strong class="viktigt">Viktigt</strong></summary>
                   <p>
@@ -126,23 +116,12 @@
                     Det innebär att den totala våtmarksarealen är större än vad som visas på kartan.
                     Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län.
                   </p>
-              </details>
-
-              <div class="viktigt-desktop">
-                <strong class="viktigt">Viktigt</strong>
-                  <p>
-                    Kartan visar endast öppen våtmark. Öppen våtmark är myrar och kärr utan trädtäckning.
-                    Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark.
-                    Det innebär att den totala våtmarksarealen är större än vad som visas på kartan.
-                    Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län.
-                  </p>
-              </div>
-           
-            <div id="info"></div>
+            </details>
         </div>
         <div class="karta-visual">
             <div id="map-wrapper">
                 <div id="map"></div>
+                <p class="karta-sources">NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av våtmark 2024</p>
                 <p class="karta-sources-mobil">Källa: NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av våtmark 2024</p>
             </div>
         </div>

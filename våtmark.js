@@ -189,7 +189,6 @@ function updateInfo(expl) {
             <span class="stat-number">${totalExpl.toLocaleString('sv-SE')} ha</span>
             <span class="stat-label">Total exploaterad</span>
         </div>
-        <p class="karta-sources">NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av våtmark 2024</p>
     `;
 }
 

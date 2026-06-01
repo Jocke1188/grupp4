@@ -567,32 +567,26 @@ details p {
     color: #ffa16b;
 }
 
-.viktigt-mobile {
-  display: none;
-}
-
-.viktigt-desktop {
-  display: block;
-}
-
-.viktigt-desktop p {
-    margin-top: 0.75rem;
-    padding: 1rem;
-    background: #fff5ee;
-    border-left: 0.2rem solid #ffa16b;
-    border-radius: 0.5rem;
-}
-
 .viktigt-details summary {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #fff5ee;
+  border: 0.13rem solid #ffa16b;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+  color: #ffa16b;
 }
 
 .viktigt-details p {
+  margin-top: 0.75rem;
   padding: 1rem;
   background: #fff5ee;
   border-left: 0.2rem solid #ffa16b;
   border-radius: 0.5rem;
-  margin: 0;
+  margin-bottom: 0;
 }
 
 /*Saken nere till höger i kartan*/
@@ -869,34 +863,6 @@ html {
   .viktigt-details summary {
   color: #ffa16b;
 }
-
-  .viktigt-mobile {
-    display: block;
-  }
-
-  .viktigt-desktop {
-    display: none;
-  }
-
-  .viktigt-details summary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: #fff5ee;
-    border: 0.13rem solid #ffa16b;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .viktigt-details p {
-    margin-top: 0.75rem;
-    padding: 1rem;
-    background: #fff5ee;
-    border-left: 0.2rem solid #ffa16b;
-    border-radius: 0.5rem;
-  }
 
   .karta-content {
     display: flex;
