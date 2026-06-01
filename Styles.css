@@ -392,8 +392,8 @@ details p {
 .data-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .stat-item {
@@ -534,8 +534,7 @@ details p {
 #info {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .karta-sources-mobil {
