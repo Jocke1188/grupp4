@@ -1,256 +1,332 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+  <body>
     <header>
-  <nav>
-    <a href="index.html" class="logo">Våtmarker</a>
-    <section>
-      <a href="index.html">Hem</a>
-      <a href="diagram.html" class="active">Exploatering</a>
-      <a href="politik.html">Lagar & mål</a>
-    </section>
-  </nav>
-</header>
-<section class="hero hero-other">
-  <h1>Förlorad mark</h1>
-  <p>Så mycket öppen våtmark har gått förlorad till vägar, järnvägar och bebyggelse.</p>
-</section>
-
-<main>
-<section class="data-intro">
-  <h2>Infrastrukturen påverkar våra våtmarker</h2>
-  <p>Vägar, järnvägar och byggnationer påverkar våtmarker över hela Sverige och omfattningen varierar mellan olika län. I vissa områden är den exploaterade ytan stor medan påverkan i andra län är större i förhållande till den totala våtmarksarealen.</p> 
-  <p>Diagrammen och kartan nedan visar hur exploateringen har utvecklats mellan 2020 och 2024 och vilka områden som påverkats mest.</p>
-</section>
-
-<section class="data-section">
-  <div class="data-content">
-    <div class="data-text">
-      <h3>Vägbyggnation dominerar exploateringen av våtmarker</h3>
+      <nav>
+        <a href="index.html" class="logo">Våtmarker</a>
+        <section>
+          <a href="index.html">Hem</a>
+          <a href="diagram.html" class="active">Exploatering</a>
+          <a href="politik.html">Lagar & mål</a>
+        </section>
+      </nav>
+    </header>
+    <section class="hero hero-other">
+      <h1>Förlorad mark</h1>
       <p>
-        Diagrammet visar exploaterad våtmark uppdelat efter typ av infrastruktur. 
-        Norrbottens län har störst total exploaterad yta med vägar som den 
-        dominerande faktorn.
+        Så mycket öppen våtmark har gått förlorad till vägar, järnvägar och
+        bebyggelse.
       </p>
+    </section>
 
-      <div class="data-stats">
-        <div class="stat-item">
-          <span class="stat-number">21</span>
-          <span class="stat-label">län analyserade</span>
-        </div>
-      </div>
+    <main>
+      <section class="data-intro">
+        <h2>Infrastrukturen påverkar våra våtmarker</h2>
+        <p>
+          Vägar, järnvägar och byggnationer påverkar våtmarker över hela Sverige
+          och omfattningen varierar mellan olika län. I vissa områden är den
+          exploaterade ytan stor medan påverkan i andra län är större i
+          förhållande till den totala våtmarksarealen.
+        </p>
+        <p>
+          Diagrammen och kartan nedan visar hur exploateringen har utvecklats
+          mellan 2020 och 2024 och vilka områden som påverkats mest.
+        </p>
+      </section>
 
-      <details class="viktigt-details">
-          <summary><strong class="Viktigt">Viktigt</strong></summary>
+      <section class="data-section">
+        <div class="data-content">
+          <div class="data-text">
+            <h3>Vägbyggnation dominerar exploateringen av våtmarker</h3>
             <p>
-             Skillnaden mellan absoluta siffror och relativa andelar är betydande i detta diagram.
-             Norrbotten har enorma våtmarksområden på över 1,6 miljoner hektar öppen våtmark.
-             Men trots att länet har störst absolut exploatering, är det bara en liten andel av deras totala våtmark.
-             Med detta i åtanke kan mindre län i södra Sverige ha exploaterat en mycket större andel av sina totala våtmarker.
-           </p>
-      </details>
-    </div>
-    
-    <div class="data-visual">
-      <canvas id="myChart"></canvas>
-      <div class="insight">
-        <strong>Insikt:</strong> Vägar utgör den största källan till exploatering i de flesta län, följt av järnvägar och byggnader.
-      </div>
-    </div>
-  </div>
-</section>
+              Diagrammet visar exploaterad våtmark uppdelat efter typ av
+              infrastruktur. Norrbottens län har störst total exploaterad yta
+              med vägar som den dominerande faktorn.
+            </p>
 
-<section class="impact-section">
-  <div>
-    <h2>Direkt påverkan</h2>
-  </div>
-  <div class="impact-content">
-    <div class="impact-text">
-      <h3>Varför tar vägar mest yta?</h3>
-      <p> Den direkta exploateringen visar tydligt att vägar tar mer yta än 
-        järnvägar och byggnader. En genomsnittlig motorväg är 20-30 meter bred medan en 
-        järnväg endast är 5-10 meter bred.</p>
-      <p>Vägar täcker också större sammanhängande områden än järnvägar. En enda väg kan sträcka sig genom flera län och dela upp våtmarkerna i mindre isolerade bitar.  Byggnader är oftast lokaliserade till ett begränsat område och påverkar därför en mindre yta.</p>
-      <p>Vägar kräver dessutom ofta sidofunktioner som parkeringsplatser, rastplatser och serviceområden som tillsammans tar ytterligare mark. En järnväg är i grunden en smal linje medan en väg är ett helt infrastruktursystem.</p>
-    </div>
-    <div class="impact-image">
-      <img src="images/roads.jpg" alt="many roads">
-    </div>
-  </div>
-</section>
+            <div class="data-stats">
+              <div class="stat-item">
+                <span class="stat-number">21</span>
+                <span class="stat-label">län analyserade</span>
+              </div>
+            </div>
 
-<section class="data-section">
-    <div class="karta-content">
-        <div class="data-text">
+            <details class="viktigt-details">
+              <summary><strong class="Viktigt">Viktigt</strong></summary>
+              <p>
+                Skillnaden mellan absoluta siffror och relativa andelar är
+                betydande i detta diagram. Norrbotten har enorma våtmarksområden
+                på över 1,6 miljoner hektar öppen våtmark. Men trots att länet
+                har störst absolut exploatering, är det bara en liten andel av
+                deras totala våtmark. Med detta i åtanke kan mindre län i södra
+                Sverige ha exploaterat en mycket större andel av sina totala
+                våtmarker.
+              </p>
+            </details>
+          </div>
+
+          <div class="data-visual">
+            <canvas id="myChart"></canvas>
+            <div class="insight">
+              <strong>Insikt:</strong> Vägar utgör den största källan till
+              exploatering i de flesta län, följt av järnvägar och byggnader.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="impact-section">
+        <div>
+          <h2>Direkt påverkan</h2>
+        </div>
+        <div class="impact-content">
+          <div class="impact-text">
+            <h3>Varför tar vägar mest yta?</h3>
+            <p>
+              Den direkta exploateringen visar tydligt att vägar tar mer yta än
+              järnvägar och byggnader. En genomsnittlig motorväg är 20-30 meter
+              bred medan en järnväg endast är 5-10 meter bred.
+            </p>
+            <p>
+              Vägar täcker också större sammanhängande områden än järnvägar. En
+              enda väg kan sträcka sig genom flera län och dela upp våtmarkerna
+              i mindre isolerade bitar. Byggnader är oftast lokaliserade till
+              ett begränsat område och påverkar därför en mindre yta.
+            </p>
+            <p>
+              Vägar kräver dessutom ofta sidofunktioner som parkeringsplatser,
+              rastplatser och serviceområden som tillsammans tar ytterligare
+              mark. En järnväg är i grunden en smal linje medan en väg är ett
+              helt infrastruktursystem.
+            </p>
+          </div>
+          <div class="impact-image">
+            <img src="images/roads.jpg" alt="many roads" />
+          </div>
+        </div>
+      </section>
+
+      <section class="data-section">
+        <div class="karta-content">
+          <div class="data-text">
             <h3>Andelen exploaterad våtmark är störst i södra Sverige</h3>
             <div id="controls">
-                <label>Exploateringstyp:
-                    <select id="explTypeSel">
-                        <option value="direkt">Direkt exploatering</option>
-                        <option value="indirekt">Indirekt exploatering</option>
-                    </select>
-                </label>
+              <label
+                >Exploateringstyp:
+                <select id="explTypeSel">
+                  <option value="direkt">Direkt exploatering</option>
+                  <option value="indirekt">Indirekt exploatering</option>
+                </select>
+              </label>
             </div>
             <p>
-                Kartan visar hur stor andel av varje läns öppna våtmark som är exploaterad av vägar, järnvägar och byggnader. 
-                Den södra delen av Sverige har den högsta andelen exploaterad våtmark i förhållande till den totala öppna våtmarken.
+              Kartan visar hur stor andel av varje läns öppna våtmark som är
+              exploaterad av vägar, järnvägar och byggnader. Den södra delen av
+              Sverige har den högsta andelen exploaterad våtmark i förhållande
+              till den totala öppna våtmarken.
             </p>
             <div id="info"></div>
             <details class="viktigt-details">
               <summary><strong class="viktigt">Viktigt</strong></summary>
-                  <p>
-                    Kartan visar endast öppen våtmark. Öppen våtmark är myrar och kärr utan trädtäckning.
-                    Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark.
-                    Det innebär att den totala våtmarksarealen är större än vad som visas på kartan.
-                    Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län.
-                  </p>
+              <p>
+                Kartan visar endast öppen våtmark. Öppen våtmark är myrar och
+                kärr utan trädtäckning. Skogsbevuxen våtmark ingår inte eftersom
+                Naturvårdsverkets NMD-Data klassificerar det som skogsmark. Det
+                innebär att den totala våtmarksarealen är större än vad som
+                visas på kartan. Öppen våtmark är den dominerande och mest
+                väldefinierade kategorin vilket gör den till det mest
+                tillförlitliga måttet att jämföra exploateringsgrad mellan alla
+                Sveriges län.
+              </p>
             </details>
-        </div>
-        <div class="karta-visual">
+          </div>
+          <div class="karta-visual">
             <div id="map-wrapper">
-                <div id="map"></div>
-                <p class="karta-sources">NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av våtmark 2024</p>
-                <p class="karta-sources-mobil">Källa: NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av våtmark 2024</p>
+              <div id="map"></div>
+              <p class="karta-sources">
+                NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av våtmark
+                2024
+              </p>
+              <p class="karta-sources-mobil">
+                Källa: NMD2018, Naturvårdsverket · SCB MI1303 – Exploatering av
+                våtmark 2024
+              </p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-<section class="impact-section">
-  <div>
-    <h2>Indirekt påverkan</h2>
-  </div>
+      <section class="impact-section">
+        <div>
+          <h2>Indirekt påverkan</h2>
+        </div>
 
-  <div class="impact-text">
-    <h3>Varför är den indirekta påverkan så stor?</h3>
-    <p>
-      Siffrorna berättar bara halva sanningen. Den indirekta påverkan från vägbyggen är ofta 
-      större än den direkta exploateringen. När en väg dras genom en våtmark händer flera saker 
-      som påverkar ett mycket större område än själva vägen <small>(Suarez-Rojas & Widmark, 2025)</small>.
-    </p>
-    <p>Den indirekta påverkan från en väg genom en våtmark kan vara 5-10 gånger större än den direkta exploateringen. En 100 meter lång vägsträcka som tar 0,3 hektar direkt kan påverka upp till 3 hektar våtmark indirekt genom dränering och störd hydrologi.</p>
-  </div>
-  
-<section class="impact-cards-grid">
-  <article class="plant-card">
-    <img src="images/flooding.jpg" alt="Hydrologi">
-    <section>
-      <h3>Hydrologi</h3>
-      <p>Vägbanken fungerar som en barriär som avbryter vattenflöden. Våtmarker är helt beroende av rätt vattennivå och störningar leder till uttorkning på ena sidan och översvämning på andra.</p>
-    </section>
-  </article>
-
-  <article class="plant-card">
-    <img src="images/roaddivided.jpg" alt="Fragmentering">
-    <section>
-      <h3>Fragmentering</h3>
-      <p>Vägen kapar ekosystemet i två delar. Djur kan inte längre röra sig fritt, växter isoleras och den biologiska mångfalden minskar drastiskt.</p>
-    </section>
-  </article>
-
-  <article class="plant-card">
-    <img src="images/muddy.jpg" alt="Dränering">
-    <section>
-      <h3>Dränering</h3>
-      <p>För att hålla vägen torr måste man dränera omkringliggande mark. Detta påverkar ofta våtmarker hundratals meter bort från själva vägen.</p>
-    </section>
-  </article>
-
-  <article class="plant-card">
-    <img src="images/roadpolution.jpg" alt="Föroreningar">
-    <section>
-      <h3>Föroreningar</h3>
-      <p>Vägdagvatten innehåller tungmetaller, salt och mikroplaster som rinner ner i våtmarken och förstör vattenkvaliteten.</p>
-    </section>
-  </article>
-</section>
-
-</section>
-</main>
-   <footer>
-
-  <section class="sources">
-    <h2>Vetenskapliga källor</h2>
-
-    <section class="cards">
-
-      <article class="card">
-        <h4>Wetlands in the EU Policy Context</h4>
-        <p >Klusmann et al.</p>
-
-        <div class="reference">
+        <div class="impact-text">
+          <h3>Varför är den indirekta påverkan så stor?</h3>
           <p>
-            Klusmann, C., Brotherton, P., Schiller, T.,
-            Wulf, S., & Marsden, K. (2026).
-            <i>Wetlands in the EU policy context.</i>
-            <i>Nature Conservation, 62</i>, 317–335.
+            Siffrorna berättar bara halva sanningen. Den indirekta påverkan från
+            vägbyggen är ofta större än den direkta exploateringen. När en väg
+            dras genom en våtmark händer flera saker som påverkar ett mycket
+            större område än själva vägen
+            <small>(Suarez-Rojas & Widmark, 2025)</small>.
           </p>
-
-          <a href="https://doi.org/10.3897/natureconservation.62.163780" target="_blank">
-            DOI-länk
-          </a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h4>Impact from Peat Utilisation in Sweden</h4>
-        <p>Zetterberg et al.</p>
-
-        <div class="reference">
           <p>
-            Zetterberg, L., Uppenberg, S., & Åhman, M. (2004).
-            <i>Climate impact from peat utilisation in Sweden.</i>
-            <i>Mitigation and Adaptation Strategies for Global Change, 9</i>, 37–76.
+            Den indirekta påverkan från en väg genom en våtmark kan vara 5-10
+            gånger större än den direkta exploateringen. En 100 meter lång
+            vägsträcka som tar 0,3 hektar direkt kan påverka upp till 3 hektar
+            våtmark indirekt genom dränering och störd hydrologi.
           </p>
         </div>
-      </article>
 
-      <article class="card">
-        <h4>Analysis of Peatland-Related Policies</h4>
-        <p>Suarez-Rojas & Widmark</p>
+        <section class="impact-cards-grid">
+          <article class="plant-card">
+            <img src="images/flooding.jpg" alt="Hydrologi" />
+            <section>
+              <h3>Hydrologi</h3>
+              <p>
+                Vägbanken fungerar som en barriär som avbryter vattenflöden.
+                Våtmarker är helt beroende av rätt vattennivå och störningar
+                leder till uttorkning på ena sidan och översvämning på andra.
+              </p>
+            </section>
+          </article>
 
-        <div class="reference">
-          <p>
-            Suarez-Rojas, C., & Widmark, C. (2025).
-            <i>A policy analysis of peatland-related policies -
-            pressures, ecosystem services, conservation and restoration.</i>
-            <i>Forest Policy and Economics, 181</i>, 103642.
-          </p>
+          <article class="plant-card">
+            <img src="images/roaddivided.jpg" alt="Fragmentering" />
+            <section>
+              <h3>Fragmentering</h3>
+              <p>
+                Vägen kapar ekosystemet i två delar. Djur kan inte längre röra
+                sig fritt, växter isoleras och den biologiska mångfalden minskar
+                drastiskt.
+              </p>
+            </section>
+          </article>
 
-          <a href="https://doi.org/10.1016/j.forpol.2025.103642" target="_blank">
-            DOI-länk
-          </a>
-        </div>
-      </article>
+          <article class="plant-card">
+            <img src="images/muddy.jpg" alt="Dränering" />
+            <section>
+              <h3>Dränering</h3>
+              <p>
+                För att hålla vägen torr måste man dränera omkringliggande mark.
+                Detta påverkar ofta våtmarker hundratals meter bort från själva
+                vägen.
+              </p>
+            </section>
+          </article>
 
-    </section>
-  </section>
+          <article class="plant-card">
+            <img src="images/roadpolution.jpg" alt="Föroreningar" />
+            <section>
+              <h3>Föroreningar</h3>
+              <p>
+                Vägdagvatten innehåller tungmetaller, salt och mikroplaster som
+                rinner ner i våtmarken och förstör vattenkvaliteten.
+              </p>
+            </section>
+          </article>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <section class="sources">
+        <h2>Vetenskapliga källor</h2>
 
-  <section class="footer-info">
-    <p><strong>Projekt:</strong> GIK373 Informationsdesign | Högskolan Dalarna</p>
-    <p><strong>Data:</strong> SCB MI1303 - Exploatering av våtmark (2020-2024)</p>
-    <p><strong>Data:</strong> Open Knowledge Foundations Sweden (okfse)</p>
-    <p><strong>Bilder:</strong> Hämtade från Unsplash</p>
-  </section>
+        <section class="cards">
+          <article class="card">
+            <h4>Wetlands in the EU Policy Context</h4>
+            <p>Klusmann et al.</p>
 
-</footer>
-  <a href="#" class="scroll-top">↑</a>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="script.js"></script>
-  <script src="våtmark.js"></script>
+            <div class="reference">
+              <p>
+                Klusmann, C., Brotherton, P., Schiller, T., Wulf, S., & Marsden,
+                K. (2026).
+                <i>Wetlands in the EU policy context.</i>
+                <i>Nature Conservation, 62</i>, 317–335.
+              </p>
 
-</body>
+              <a
+                href="https://doi.org/10.3897/natureconservation.62.163780"
+                target="_blank"
+              >
+                DOI-länk
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>Impact from Peat Utilisation in Sweden</h4>
+            <p>Zetterberg et al.</p>
+
+            <div class="reference">
+              <p>
+                Zetterberg, L., Uppenberg, S., & Åhman, M. (2004).
+                <i>Climate impact from peat utilisation in Sweden.</i>
+                <i>Mitigation and Adaptation Strategies for Global Change, 9</i
+                >, 37–76.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>Analysis of Peatland-Related Policies</h4>
+            <p>Suarez-Rojas & Widmark</p>
+
+            <div class="reference">
+              <p>
+                Suarez-Rojas, C., & Widmark, C. (2025).
+                <i
+                  >A policy analysis of peatland-related policies - pressures,
+                  ecosystem services, conservation and restoration.</i
+                >
+                <i>Forest Policy and Economics, 181</i>, 103642.
+              </p>
+
+              <a
+                href="https://doi.org/10.1016/j.forpol.2025.103642"
+                target="_blank"
+              >
+                DOI-länk
+              </a>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="footer-info">
+        <p>
+          <strong>Projekt:</strong> GIK373 Informationsdesign | Högskolan
+          Dalarna
+        </p>
+        <p>
+          <strong>Data:</strong> SCB MI1303 - Exploatering av våtmark
+          (2020-2024)
+        </p>
+        <p><strong>Data:</strong> Open Knowledge Foundations Sweden (okfse)</p>
+        <p><strong>Bilder:</strong> Hämtade från Unsplash</p>
+      </section>
+    </footer>
+    <a href="#" class="scroll-top">↑</a>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    <script src="våtmark.js"></script>
+  </body>
 </html>

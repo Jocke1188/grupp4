@@ -102,11 +102,19 @@ function printSCBChart(dataSCB) {
         : 0;
     });
 
+  const colors = {
+  BYGGN: { bg: 'rgba(255, 212, 184, 0.85)', border: '#ffd4b8' },
+  JVAG:  { bg: 'rgba(255, 161, 107, 0.85)', border: '#ffa16b' },
+  VAG:   { bg: 'rgba(212, 120, 74, 0.85)',  border: '#d4784a' }
+  };
+
   return {
-  label: typeMap[type],
-  data,
-  borderWidth: 2
-};
+    label: typeMap[type],
+    data,
+    backgroundColor: colors[type].bg,
+    borderColor: colors[type].border,
+    borderWidth: 2
+  };
   });
 
 new Chart(
@@ -141,7 +149,12 @@ new Chart(
             display: true,
             text: "Hektar (ha)"
           }
-        }
+        },
+        x: {
+          grid: {
+          display: false
+          }
+},
       }
     }
   }

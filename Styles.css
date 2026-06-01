@@ -54,7 +54,6 @@ p {
   color: #333;
 }
 
-
 /*HEADER & NAVIGATION*/
 header {
   width: 100%;
@@ -89,7 +88,6 @@ nav a.logo {
   text-transform: uppercase;
   letter-spacing: 0.08rem;
 }
-
 
 /*HERO*/
 .hero {
@@ -129,7 +127,6 @@ nav a.logo {
   transition: 0.3s ease;
 }
 
-
 /*KNAPPAR*/
 .button,
 .button-2 {
@@ -153,7 +150,6 @@ nav a.logo {
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
 }
 
-
 /*STATS*/
 .stats {
   width: min(63rem, 90%);
@@ -173,7 +169,6 @@ nav a.logo {
   color: #7da25a;
 }
 
-
 /*ABOUT*/
 .about {
   width: min(63rem, 90%);
@@ -192,7 +187,6 @@ nav a.logo {
   border-radius: 1rem;
 }
 
-
 /*PLANTS*/
 .plants-title {
   padding-top: 4rem;
@@ -208,7 +202,6 @@ nav a.logo {
   gap: 2rem;
   align-items: start;
 }
-
 
 /*PLANT CARD*/
 .plant-card {
@@ -264,7 +257,6 @@ nav a.logo {
   box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.12);
 }
 
-
 /*DETAILS - read more about plants*/
 details {
   margin-top: 1rem;
@@ -284,7 +276,6 @@ summary::-webkit-details-marker {
 details p {
   margin-top: 0.8rem;
 }
-
 
 /*GEMENSAM STYLING FÖR VITA KORT-SEKTIONER*/
 .data-section,
@@ -306,13 +297,11 @@ details p {
   width: min(87.5rem, 90%);
 }
 
-
 /*DATA INTRO*/
 .data-intro {
   width: min(63rem, 90%);
   margin: 5rem auto 4rem;
 }
-
 
 /*DATA SECTION*/
 .data-content {
@@ -354,7 +343,6 @@ details p {
   min-width: 0;
 }
 
-
 /*CHART SECTION*/
 .chart h2 {
   margin-bottom: 1rem;
@@ -391,7 +379,6 @@ details p {
   color: #2c5530;
   margin-right: 0.5rem;
 }
-
 
 /*KARTA*/
 .våtmark-section p {
@@ -519,7 +506,6 @@ details p {
   height: 5rem;
 }
 
-
 /*DIREKT EXPLOATERING*/
 .impact-section {
   width: min(63rem, 90%);
@@ -554,7 +540,6 @@ details p {
   cursor: default;
 }
 
-
 /*FOOTER & SOURCES*/
 footer {
   display: flex;
@@ -564,7 +549,7 @@ footer {
   min-height: 34rem;
   color: white;
   background:
-    linear-gradient(rgba(52, 90, 40, .9), rgba(52, 90, 40, .9)),
+    linear-gradient(rgba(52, 90, 40, 0.9), rgba(52, 90, 40, 0.9)),
     url("images/footer.jpg");
   background-size: cover;
 }
@@ -588,7 +573,7 @@ footer {
   position: relative;
   z-index: 1;
   padding: 2rem;
-  background: rgba(255, 255, 255, .08);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
   backdrop-filter: blur(0.25rem);
   min-width: 0;
@@ -605,7 +590,7 @@ footer {
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, .12);
+  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.12);
 }
 
 .reference {
@@ -632,7 +617,6 @@ footer {
   line-height: 1.3;
 }
 
-
 /*PIL UPP TILL TOPPEN*/
 .scroll-top {
   position: fixed;
@@ -656,7 +640,6 @@ footer {
   background: #7bc932;
   transform: translateY(-0.15rem);
 }
-
 
 /*MEDIA QUERIES*/
 @media (max-width: 768px) {
