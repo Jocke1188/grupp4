@@ -595,7 +595,7 @@ details p {
 
 /*Saken nere till höger i kartan*/
 #map-legend {
-  position: absolute;
+  position: relative;
   bottom: 1.9rem;
   right: 0.6rem;
   width: 9.4rem;
@@ -604,7 +604,6 @@ details p {
   border-radius: 0.5rem;
   font-size: 0.7rem;
   box-shadow: 0 0.06rem 0.25rem rgba(0,0,0,0.2);
-  z-index: 1000;
 }
 
 .legend-content {
@@ -845,7 +844,7 @@ footer {
   text-decoration: none;
   font-size: 1.5rem;  
   transition: 0.3s ease;
-  z-index: 100;  
+  z-index: 1000;  
 }
 
 .scroll-top:hover {
