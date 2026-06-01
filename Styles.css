@@ -412,6 +412,7 @@ details p {
   color: #666;
   text-transform: uppercase;
   letter-spacing: 0.03rem;
+  margin-bottom: 1rem;
 }
 
 .data-visual {
