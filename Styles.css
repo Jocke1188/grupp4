@@ -111,6 +111,12 @@ nav a.logo {
     url("images/roadforest.jpg");
 }
 
+.hero-politik {
+  background-image:
+    linear-gradient(rgba(37, 100, 35, 0.4), rgba(21, 63, 10, 0.4)),
+    url("images/Wetland3.jpg");
+}
+
 .hero p {
   margin-bottom: 2rem;
   color: white;
