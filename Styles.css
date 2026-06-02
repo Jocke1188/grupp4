@@ -587,6 +587,10 @@ footer {
   color: white;
 }
 
+.card a {
+  color: white;
+}
+
 .footer-info {
   margin-top: auto;
   text-align: center;
