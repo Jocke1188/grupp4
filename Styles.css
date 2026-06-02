@@ -128,7 +128,7 @@ nav a.logo {
 .button,
 .button-2 {
   display: inline-block;
-  background:#8fd14f;
+  background:#68a536;
   border: 0.1rem solid #8fd14f; 
   color: white;
   padding: 0.9rem 1.5rem;
@@ -137,14 +137,8 @@ nav a.logo {
   transition: 0.3s ease;
 }
 
-.button-2 {
-  background:none;
-  border: 0.1rem solid #8fd14f; 
-}
-
-.button:hover,
-.button-2:hover {
-  background: #7bc932;
+.button:hover{
+  background: #538821;
   transform: translateY(-0.15rem);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
 }
@@ -611,7 +605,7 @@ footer {
   bottom: 2rem;
   width: 3rem;
   height: 3rem;
-  background: #8fd14f;
+  background: #68a536;
   color: white;
   border-radius: 50%;
   display: flex;
