@@ -108,14 +108,14 @@
                 <span class="stat-label">Ökning sedan 2020</span>
               </div>
             </div>
-            <details class="viktigt-details">
-              <summary><strong class="Viktigt">Viktigt</strong></summary>
-              <p>
-                Data för 2025 och 2026 saknas eftersom SCB:s statistik (MI1303)
-                sammanställs per län med fördröjning. Fullständiga uppgifter
-                publiceras vanligen först ett till två år efter mätperioden.
-              </p>
-            </details>
+            <label class="viktigt-tooltip">
+              <input type="checkbox" class="viktigt-checkbox">
+              <span class="viktigt-icon">!</span>
+              <span class="viktigt-content">
+               Data för 2025 och 2026 saknas eftersom SCB:s statistik (MI1303) sammanställs per län med fördröjning. 
+               Fullständiga uppgifter publiceras vanligen först ett till två år efter mätperioden.
+              </span>
+            </label>
           </div>
           <div class="data-visual">
             <canvas id="lineChart"></canvas>
