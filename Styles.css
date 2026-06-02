@@ -123,21 +123,13 @@ nav a.logo {
   text-shadow: 0.15rem 0.15rem 0.5rem rgba(0, 0, 0, 0.6);
 }
 
-.hero a {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 4rem;
-  background: #7da25a;
-  color: white;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
 
 /*KNAPPAR*/
 .button,
 .button-2 {
   display: inline-block;
-  background: #8fd14f;
+  background:#8fd14f;
+  border: 0.1rem solid #8fd14f; 
   color: white;
   padding: 0.9rem 1.5rem;
   border-radius: 1rem;
@@ -146,7 +138,8 @@ nav a.logo {
 }
 
 .button-2 {
-  opacity: 0.7;
+  background:none;
+  border: 0.1rem solid #8fd14f; 
 }
 
 .button:hover,
