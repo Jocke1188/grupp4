@@ -557,17 +557,17 @@ footer {
   flex-direction: column;
   margin-top: 6rem;
   padding: 1rem;
-  min-height: 34rem;
+  min-height: 27rem;
   color: white;
   background:
-    linear-gradient(rgba(52, 90, 40, 0.9), rgba(52, 90, 40, 0.9)),
+    linear-gradient(rgba(78, 141, 59, 0.9), rgba(52, 90, 40, 0.9)),
     url("images/footer.jpg");
   background-size: cover;
 }
 
 .sources h2 {
   margin-bottom: 3rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   text-align: center;
   color: white;
 }
@@ -576,10 +576,12 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .card {
+  display: flex;
+  align-items: center;
   transition: 0.3s ease;
   position: relative;
   z-index: 1;
@@ -588,7 +590,6 @@ footer {
   border-radius: 1rem;
   backdrop-filter: blur(0.25rem);
   min-width: 0;
-  cursor: pointer;
 }
 
 .card h4 {
@@ -597,24 +598,6 @@ footer {
 
 .card p {
   color: white;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.12);
-}
-
-.reference {
-  color: #cfe8b8;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: 0.3s ease;
-}
-
-.card:hover .reference {
-  opacity: 1;
-  max-height: 20rem;
 }
 
 .footer-info {
