@@ -156,7 +156,7 @@ function drawMap() {
 }
 
 function updateLegend(max, typ) {
-    const title = typ === 'direkt' ? 'Direkt exploaterad (%)' : 'Indirekt exploaterad (%)';
+    const title = typ === 'direkt' ? 'Direkt exploatering (%)' : 'Indirekt exploatering (%)';
 
     const existing = document.getElementById('map-legend');
     if (existing) existing.remove();
