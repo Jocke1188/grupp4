@@ -37,7 +37,7 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: #345a28;
 }
 
@@ -45,6 +45,13 @@ h4 {
   font-size: 1.1rem;
   margin-bottom: 0.3rem;
   color: #345a28;
+}
+
+h5 {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 1;
+  margin-bottom: 1rem;
 }
 
 p {
@@ -359,20 +366,6 @@ details p {
   margin-bottom: 2rem;
 }
 
-.insight {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: #7da25a77;
-  border-left: 0.25rem solid #2c5530;
-  border-radius: 0.5rem;
-  line-height: 1.6;
-}
-
-.insight strong {
-  color: #2c5530;
-  margin-right: 0.5rem;
-}
-
 /*KARTA*/
 .våtmark-section p {
   color: #666;
@@ -396,6 +389,7 @@ details p {
   font-size: 0.95rem;
   background: white;
 }
+
 
 #map-wrapper {
   width: 100%;

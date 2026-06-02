@@ -55,10 +55,24 @@
         <div class="data-content">
           <div class="data-text">
             <h3>Vägbyggnation dominerar exploateringen av våtmarker</h3>
+            <h5><label class="viktigt-tooltip">
+              <input type="checkbox" class="viktigt-checkbox">
+              <span class="viktigt-icon">!</span>
+              <span class="viktigt-content">
+               Skillnaden mellan absoluta siffror och relativa andelar är betydande i detta diagram. 
+               Norrbotten har enorma våtmarksområden på över 1,6 miljoner hektar öppen våtmark. 
+               Men trots att länet har störst absolut exploatering, är det bara en liten andel av deras totala våtmark. 
+               Med detta i åtanke kan mindre län i södra Sverige ha exploaterat en mycket större andel av sina totala våtmarker. 
+                </span>
+              </label> Om siffrorna  
+            </h5>
+
             <p>
               Diagrammet visar exploaterad våtmark uppdelat efter typ av
               infrastruktur. Norrbottens län har störst total exploaterad yta
-              med vägar som den dominerande faktorn.
+              med vägar som den dominerande faktorn. 
+              Vägar utgör den största källan till
+              exploatering i de flesta län, följt av järnvägar och byggnader.
             </p>
 
             <div class="data-stats">
@@ -67,25 +81,10 @@
                 <span class="stat-label">län analyserade</span>
               </div>
             </div>
-
-             <label class="viktigt-tooltip">
-              <input type="checkbox" class="viktigt-checkbox">
-              <span class="viktigt-icon">!</span>
-              <span class="viktigt-content">
-               Skillnaden mellan absoluta siffror och relativa andelar är betydande i detta diagram. 
-               Norrbotten har enorma våtmarksområden på över 1,6 miljoner hektar öppen våtmark. 
-               Men trots att länet har störst absolut exploatering, är det bara en liten andel av deras totala våtmark. 
-               Med detta i åtanke kan mindre län i södra Sverige ha exploaterat en mycket större andel av sina totala våtmarker. 
-              </span>
-            </label>
           </div>
 
           <div class="data-visual">
             <canvas id="myChart"></canvas>
-            <div class="insight">
-              <strong>Insikt:</strong> Vägar utgör den största källan till
-              exploatering i de flesta län, följt av järnvägar och byggnader.
-            </div>
           </div>
         </div>
       </section>
@@ -125,8 +124,20 @@
         <div class="karta-content">
           <div class="data-text">
             <h3>Andelen exploaterad våtmark är störst i södra Sverige</h3>
+            <h5><label class="viktigt-tooltip">
+              <input type="checkbox" class="viktigt-checkbox">
+              <span class="viktigt-icon">!</span>
+              <span class="viktigt-content">
+               Kartan visar endast öppen våtmark. 
+               Öppen våtmark är myrar och kärr utan trädtäckning. 
+               Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark. 
+               Det innebär att den totala våtmarksarealen är större än vad som visas på kartan. 
+               Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län. 
+                </span>
+              </label> Om siffrorna  
+            </h5>
             <div id="controls">
-              <label
+              <label 
                 >Exploateringstyp:
                 <select id="explTypeSel">
                   <option value="direkt">Direkt exploatering</option>
@@ -141,22 +152,10 @@
               till den totala öppna våtmarken.
             </p>
             <div id="info"></div>
-            <label class="viktigt-tooltip">
-              <input type="checkbox" class="viktigt-checkbox">
-              <span class="viktigt-icon">!</span>
-              <span class="viktigt-content">
-               Kartan visar endast öppen våtmark. 
-               Öppen våtmark är myrar och kärr utan trädtäckning. 
-               Skogsbevuxen våtmark ingår inte eftersom Naturvårdsverkets NMD-Data klassificerar det som skogsmark. 
-               Det innebär att den totala våtmarksarealen är större än vad som visas på kartan. 
-               Öppen våtmark är den dominerande och mest väldefinierade kategorin vilket gör den till det mest tillförlitliga måttet att jämföra exploateringsgrad mellan alla Sveriges län. 
-              </span>
-            </label>
           </div>
           <div class="karta-visual">
             <div id="map-wrapper">
               <div id="map"></div>
-
               <div id="map-legend">
                 <strong>Andel exploaterad våtmark (%)</strong>
                 <div class="legend-content">
