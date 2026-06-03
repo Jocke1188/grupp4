@@ -139,6 +139,7 @@ nav a.logo {
   border: 0.1rem solid #8fd14f; 
   color: white;
   padding: 0.9rem 1.5rem;
+  margin: 0.5rem;
   border-radius: 1rem;
   text-decoration: none;
   transition: 0.3s ease;
